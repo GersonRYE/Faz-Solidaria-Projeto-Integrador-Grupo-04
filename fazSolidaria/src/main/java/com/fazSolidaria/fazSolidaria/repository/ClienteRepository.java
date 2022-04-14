@@ -10,5 +10,5 @@ import com.fazSolidaria.fazSolidaria.model.ClienteModel;
 @Repository
 public interface ClienteRepository extends JpaRepository<ClienteModel, Long> {
 
-	public List<ClienteModel> findAllByNomeClienteContaingIgnoreCase (String nomeCliente);
+	public List<ClienteModel> findAllByNomeClienteContainingIgnoreCase (String nomeCliente);
 }
