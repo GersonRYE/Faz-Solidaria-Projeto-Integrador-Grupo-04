@@ -16,6 +16,7 @@ public class EnderecoModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idEndereco;
 	
+	
 	@NotBlank (message = "É obrigatório preencher o endereço")
 	@Size (min=3, max=50, message = "O endereço deve conter de 3 até 50 caracteres")
 	private String logradouro;
@@ -45,10 +46,15 @@ public class EnderecoModel {
 	private String estado;
 	
 	@NotBlank (message = "É obrigatório preencher o númerro")
-	@Size (min=3, max=50, message = "O número deve conter de 3 até 50 caracteres")
+	@Size (min=1, max=50, message = "O número deve conter de 1 até 50 caracteres")
 	private String numero;
 	
-	
+	public long getIdEndereco() {
+		return idEndereco;
+	}
+	public void setIdEndereco(long idEndereco) {
+		this.idEndereco = idEndereco;
+	}
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -97,7 +103,5 @@ public class EnderecoModel {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	
-	
 
 }
