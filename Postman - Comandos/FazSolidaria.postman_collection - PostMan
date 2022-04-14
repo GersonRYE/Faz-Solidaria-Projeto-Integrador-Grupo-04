@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "615ece3f-a908-48ca-a0e5-63ab6d3262cd",
+		"name": "FazSolidaria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Lista Produtos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeProduto\": \"Tomate\",\r\n    \"preçoProduto\": 1.50,\r\n    \"estoqueProduto\": 10,\r\n    \"imagemProduto\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.superprix.com.br%2Ftomate-1-unidade-aprox-250g%2Fp&psig=AOvVaw3v1_ICOJIMVHyXb6tUmIAm&ust=1649990016635000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOC6_tvBkvcCFQAAAAAdAAAAABAI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Produto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " \r\n {\r\n    \"id\": 1,\r\n    \"nomeProduto\": \"Tomate\",\r\n    \"preçoProduto\": 1.50,\r\n    \"estoqueProduto\": 10,\r\n    \"imagemProduto\": \"https://br.depositphotos.com/11914418/stock-photo-fresh-red-tomato-isoated-on.html\"\r\n }\r\n\r\n   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Produto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/produtos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Nome Produto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/produtos/nome?nomeProduto=tomate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"nome"
+					],
+					"query": [
+						{
+							"key": "nomeProduto",
+							"value": "tomate"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

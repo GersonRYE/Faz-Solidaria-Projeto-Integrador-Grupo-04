@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -20,10 +21,10 @@ public class ProdutosModel {
 	@Size (min=3, max=45, message = "O nome produto deve ter de 3 até 45 caracteres")
 	private String nomeProduto;
 	
-	@NotBlank (message = "O preço é obrigatório")
+	@NotNull (message = "O preço é obrigatório")
 	private double precoProduto;
 	
-	@NotBlank (message = "Informar o estoque é obrigatório")
+	@NotNull (message = "Informar o estoque é obrigatório")
 	private int estoqueProduto;
 	
 	@NotBlank (message = "É obrigatório ter imagem")
