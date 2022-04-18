@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "ab186ee4-49b1-4449-a5e1-832f90f23cd2",
+		"_postman_id": "81a2e21e-b5df-4801-adc0-1251e4c780f0",
 		"name": "FazSolidaria-Endereco",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Get Lista Endereço",
+			"name": "Get Lista Endereços",
 			"request": {
 				"method": "GET",
 				"header": [],
