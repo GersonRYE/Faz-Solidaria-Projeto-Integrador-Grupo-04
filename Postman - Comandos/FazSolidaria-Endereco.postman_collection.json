@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"idEndereco\": 1,\n    \"logradouro\": \"Alameda Sabia\",\n    \"bairro\":\"floresta\",\n    \"cidade\" : \"belo horizonte\",\n    \"cep\" : \"25577-220\",\n    \"pais\": \"Brasil\",\n    \"complemento\": \"bloco c\",\n    \"estado\": \"Minas Gerais\",\n    \"numero\": \"24\"\n}",
+					"raw": "{\n    \"id\": 1,\n    \"logradouro\": \"Alameda Sabia\",\n    \"bairro\":\"floresta\",\n    \"cidade\" : \"belo horizonte\",\n    \"cep\" : \"25577-220\",\n    \"pais\": \"Brasil\",\n    \"complemento\": \"bloco c\",\n    \"estado\": \"Minas Gerais\",\n    \"numero\": \"24\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

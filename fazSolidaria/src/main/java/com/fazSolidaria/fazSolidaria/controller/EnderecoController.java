@@ -52,7 +52,7 @@ public class EnderecoController {
 	}
 	@PutMapping
 	public ResponseEntity<EnderecoModel> put(@Valid @RequestBody EnderecoModel endereco){
-		return repository.findById(endereco.getIdEndereco()).map(resp -> ResponseEntity.status(HttpStatus.OK).body(repository.save(endereco))).orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+		return repository.findById(endereco.getId()).map(resp -> ResponseEntity.status(HttpStatus.OK).body(repository.save(endereco))).orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 	}
 	@DeleteMapping (path = "/{id}")
 	public ResponseEntity <?> delete(@PathVariable long id){

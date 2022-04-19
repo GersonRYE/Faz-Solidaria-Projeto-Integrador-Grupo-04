@@ -10,6 +10,6 @@ import com.fazSolidaria.fazSolidaria.model.ProdutosModel;
 @Repository
 public interface ProdutosRepository extends JpaRepository<ProdutosModel, Long> {
 
-	public List<ProdutosModel> findAllByNomeProdutoContainingIgnoreCase(String nomeProduto);
+	public List<ProdutosModel> findAllByNomeContainingIgnoreCase(String nome);
 
 }
