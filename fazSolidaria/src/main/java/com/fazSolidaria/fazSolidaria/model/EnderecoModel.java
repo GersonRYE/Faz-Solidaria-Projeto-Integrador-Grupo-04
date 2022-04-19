@@ -1,12 +1,18 @@
 package com.fazSolidaria.fazSolidaria.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_endereco")
@@ -48,6 +54,10 @@ public class EnderecoModel {
 	@NotBlank (message = "É obrigatório preencher o númerro")
 	@Size (min=1, max=50, message = "O número deve conter de 1 até 50 caracteres")
 	private String numero;
+	
+	@OneToMany(mappedBy = "endereco", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("endereco")
+	private List<UsuarioModel> usuarios;
 	
 	
 	public long getId() {
@@ -104,5 +114,13 @@ public class EnderecoModel {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+	public List<UsuarioModel> getUsuarios() {
+		return usuarios;
+	}
+	public void setUsuarios(List<UsuarioModel> usuarios) {
+		this.usuarios = usuarios;
+	}
+	
+	
 
 }

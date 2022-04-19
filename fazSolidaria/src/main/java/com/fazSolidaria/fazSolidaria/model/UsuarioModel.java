@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -11,6 +12,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -26,7 +29,7 @@ public class UsuarioModel {
 	@NotBlank(message = "É obrigatório preencher o nome")
 	@Size(min = 3, max = 50, message = "O nome do cliente deve ter de 3 até 50 caracteres")
 	private String nome;
-	
+
 	@NotNull(message = "O atributo email é Obrigatório!")
 	@Email
 	@Size(min = 5, max = 100)
@@ -44,6 +47,10 @@ public class UsuarioModel {
 	private String telefone;
 
 	private String foto;
+
+	@ManyToOne
+	@JsonIgnoreProperties("usuarios")
+	private EnderecoModel endereco;
 
 	public long getId() {
 		return id;
@@ -109,6 +116,12 @@ public class UsuarioModel {
 		this.foto = foto;
 	}
 
-	
+	public EnderecoModel getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(EnderecoModel endereco) {
+		this.endereco = endereco;
+	}
 
 }
