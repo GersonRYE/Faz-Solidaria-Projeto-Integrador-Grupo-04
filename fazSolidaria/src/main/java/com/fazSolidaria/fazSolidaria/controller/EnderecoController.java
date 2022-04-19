@@ -22,7 +22,7 @@ import com.fazSolidaria.fazSolidaria.model.EnderecoModel;
 import com.fazSolidaria.fazSolidaria.repository.EnderecoRepository;
 
 @RestController
-@RequestMapping(path = "/enderecos")
+@RequestMapping("/enderecos")
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 public class EnderecoController {
 	
