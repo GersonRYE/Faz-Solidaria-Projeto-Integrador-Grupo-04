@@ -31,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"cpf\": \"610.410.010-45\",\r\n    \"nome\": \"Gerson Ronaldo\",\r\n    \"email\": \"gerson@gmail.com\",\r\n    \"senha\": \"0123456789\",\r\n    \"dataNasc\": \"01/01/1999\",\r\n    \"telefone\": \"(11)99999-9999\",\r\n    \"foto\": \"\"\r\n}",
+					"raw": "{\r\n    \"cpf\": \"610.410.010-45\",\r\n    \"nome\": \"Gerson Ronaldo\",\r\n    \"email\": \"gerson@gmail.com\",\r\n    \"senha\": \"0123456789\",\r\n    \"dataNasc\": \"01/01/1999\",\r\n    \"telefone\": \"(11)99999-9999\",\r\n    \"foto\": \"\",\r\n    \"endereco\": {\r\n        \"id\": 1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
