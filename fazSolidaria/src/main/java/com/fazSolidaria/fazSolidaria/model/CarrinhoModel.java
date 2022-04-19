@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tb_item_pedido")
-public class ItemPedidoModel {
+public class CarrinhoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idItem;
