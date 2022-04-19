@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nomeProduto\": \"Pera\",\r\n    \"precoProduto\": 1.50,\r\n    \"estoqueProduto\": 10,\r\n    \"imagemProduto\": \"https://hiperideal.vteximg.com.br/arquivos/ids/167745-1000-1000/80764.jpg?v=636615816415070000\",\r\n    \"categoria\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"raw": "{\r\n    \"nome\": \"Pera\",\r\n    \"preco\": 1.50,\r\n    \"estoque\": 10,\r\n    \"imagem\": \"https://hiperideal.vteximg.com.br/arquivos/ids/167745-1000-1000/80764.jpg?v=636615816415070000\",\r\n    \"categoria\": {\r\n        \"id\": 1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -71,7 +71,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " \r\n\r\n        \"id\": 2,\r\n        \"nomeProduto\": \"Maçã\",\r\n        \"precoProduto\": 0.0,\r\n        \"estoqueProduto\": 10,\r\n        \"imagemProduto\": \"https://pt.wikipedia.org/wiki/Ficheiro:Red_Apple.jpg\",\r\n        \"categoria\": {\r\n            \"id\": 2,\r\n            \"descricao\": \"Frutas\"\r\n        }\r\n    }\r\n\r\n   ",
+					"raw": " \r\n{\r\n        \"id\": 1,\r\n        \"nome\": \"Maçã\",\r\n        \"preco\": 0.0,\r\n        \"estoque\": 20,\r\n        \"imagem\": \"https://pt.wikipedia.org/wiki/Ficheiro:Red_Apple.jpg\",\r\n        \"categoria\":{\r\n            \"id\": 1\r\n        }\r\n    }\r\n\r\n   ",
 					"options": {
 						"raw": {
 							"language": "json"

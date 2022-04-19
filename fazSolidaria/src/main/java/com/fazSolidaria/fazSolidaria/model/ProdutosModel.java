@@ -19,63 +19,70 @@ public class ProdutosModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotBlank (message = "Nome do produto é obrigatório" )
-	@Size (min=3, max=45, message = "O nome produto deve ter de 3 até 45 caracteres")
-	private String nomeProduto;
-	
-	@NotNull (message = "O preço é obrigatório")
-	private double precoProduto;
-	
-	@NotNull (message = "Informar o estoque é obrigatório")
-	private int estoqueProduto;
-	
-	@NotBlank (message = "É obrigatório ter imagem")
-	private String imagemProduto;
-	
+
+	@NotBlank(message = "Nome do produto é obrigatório")
+	@Size(min = 3, max = 45, message = "O nome produto deve ter de 3 até 45 caracteres")
+	private String nome;
+
+	@NotNull(message = "O preço é obrigatório")
+	private double preco;
+
+	@NotNull(message = "Informar o estoque é obrigatório")
+	private int estoque;
+
+	@NotBlank(message = "É obrigatório ter imagem")
+	private String imagem;
+
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private CategoriaModel categoria;
-	
-	
-	public CategoriaModel getCategoria() {
-		return categoria;
-	}
-	public void setCategoria(CategoriaModel categoria) {
-		this.categoria = categoria;
-	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getNomeProduto() {
-		return nomeProduto;
+
+	public String getNome() {
+		return nome;
 	}
-	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	public double getPrecoProduto() {
-		return precoProduto;
+
+	public double getPreco() {
+		return preco;
 	}
-	public void setPrecoProduto(double precoProduto) {
-		this.precoProduto = precoProduto;
+
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
-	public int getEstoqueProduto() {
-		return estoqueProduto;
+
+	public int getEstoque() {
+		return estoque;
 	}
-	public void setEstoqueProduto(int estoqueProduto) {
-		this.estoqueProduto = estoqueProduto;
+
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
 	}
-	public String getImagemProduto() {
-		return imagemProduto;
+
+	public String getImagem() {
+		return imagem;
 	}
-	public void setImagemProduto(String imagemProduto) {
-		this.imagemProduto = imagemProduto;
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
-	
-	
-	
+
+	public CategoriaModel getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaModel categoria) {
+		this.categoria = categoria;
+	}
 
 }

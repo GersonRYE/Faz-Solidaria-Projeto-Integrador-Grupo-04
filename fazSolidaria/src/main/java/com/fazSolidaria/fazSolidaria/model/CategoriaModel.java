@@ -22,8 +22,8 @@ public class CategoriaModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotBlank(message="descroção obrigatório")
-	@Size(min = 2, max = 50, message = "a descrição deve esta entre 2 a 50 caracteres")
+	@NotBlank(message="descrição obrigatório")
+	@Size(min = 2, max = 50, message = "a descrição deve ser entre 2 a 50 caracteres")
 	private String descricao;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)

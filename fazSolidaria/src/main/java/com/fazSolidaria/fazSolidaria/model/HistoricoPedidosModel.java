@@ -12,41 +12,40 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table (name = "tb_pedidos")
+@Table(name = "tb_historico")
 public class HistoricoPedidosModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idPedido;
-	
+	private long id;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date datePedido = new java.sql.Date(System.currentTimeMillis());
-	
-	@NotBlank (message = "Total do Pedido é obrigatório")
+
+	@NotBlank(message = "Total do Pedido é obrigatório")
 	private double totalPedido;
-	
-	
-	public long getIdPedido() {
-		return idPedido;
+
+	public long getId() {
+		return id;
 	}
-	public void setIdPedido(long idPedido) {
-		this.idPedido = idPedido;
+
+	public void setId(long id) {
+		this.id = id;
 	}
+
 	public Date getDatePedido() {
 		return datePedido;
 	}
+
 	public void setDatePedido(Date datePedido) {
 		this.datePedido = datePedido;
 	}
+
 	public double getTotalPedido() {
 		return totalPedido;
 	}
+
 	public void setTotalPedido(double totalPedido) {
 		this.totalPedido = totalPedido;
 	}
-	
-	
-	
-	
-
 
 }
