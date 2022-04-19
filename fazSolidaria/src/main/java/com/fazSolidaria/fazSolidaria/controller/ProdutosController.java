@@ -22,7 +22,7 @@ import com.fazSolidaria.fazSolidaria.model.ProdutosModel;
 import com.fazSolidaria.fazSolidaria.repository.ProdutosRepository;
 
 @RestController
-@RequestMapping(path = "/produtos")
+@RequestMapping("/produtos")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutosController {
 
