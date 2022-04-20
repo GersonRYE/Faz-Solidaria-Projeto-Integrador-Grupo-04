@@ -38,9 +38,9 @@ public class EnderecoController {
 	public ResponseEntity <EnderecoModel>GetById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
-	@GetMapping (path = "/estado")
-	public ResponseEntity<List<EnderecoModel>>GettAllEstado(@RequestParam String estado){
-		return ResponseEntity.ok(repository.findAllByEstadoContainingIgnoreCase(estado));
+	@GetMapping (path = "/uf")
+	public ResponseEntity<List<EnderecoModel>>GettAllUf(@RequestParam String uf){
+		return ResponseEntity.ok(repository.findAllByUfContainingIgnoreCase(uf));
 	}
 	@GetMapping (path = "/pais")
 	public ResponseEntity<List<EnderecoModel>>GettAllPais(@RequestParam String pais){

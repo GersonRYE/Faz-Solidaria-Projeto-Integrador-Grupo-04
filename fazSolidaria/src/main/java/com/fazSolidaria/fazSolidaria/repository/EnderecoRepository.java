@@ -10,7 +10,7 @@ import com.fazSolidaria.fazSolidaria.model.EnderecoModel;
 @Repository
 public interface EnderecoRepository extends JpaRepository<EnderecoModel, Long> {
 
-	public List<EnderecoModel> findAllByEstadoContainingIgnoreCase(String estado);
+	public List<EnderecoModel> findAllByUfContainingIgnoreCase(String uf);
 
 	public List<EnderecoModel> findAllByPaisContainingIgnoreCase (String pais);
 }

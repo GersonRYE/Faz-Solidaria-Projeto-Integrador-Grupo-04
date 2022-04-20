@@ -22,10 +22,17 @@ public class EnderecoModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotBlank (message = "É obrigatório preencher o CEP")
+	@Size (min=3, max=50, message = "O CEP deve conter de 3 até 50 caracteres")
+	private String cep;
 	
 	@NotBlank (message = "É obrigatório preencher o endereço")
 	@Size (min=3, max=50, message = "O endereço deve conter de 3 até 50 caracteres")
 	private String logradouro;
+	
+	@NotBlank (message = "É obrigatório preencher o complemento")
+	@Size (min=3, max=50, message = "O complemento deve conter de 3 até 50 caracteres")
+	private String complemento;
 	
 	@NotBlank (message = "É obrigatório preencher o bairro")
 	@Size (min=3, max=50, message = "O bairro deve conter de 3 até 50 caracteres")
@@ -33,27 +40,19 @@ public class EnderecoModel {
 	
 	@NotBlank (message = "É obrigatório preencher a cidade")
 	@Size (min=3, max=50, message = "A cidade deve conter de 3 até 50 caracteres")
-	private String cidade;
-	
-	@NotBlank (message = "É obrigatório preencher o CEP")
-	@Size (min=3, max=50, message = "O CEP deve conter de 3 até 50 caracteres")
-	private String cep;
-	
-	@NotBlank (message = "É obrigatório preencher o País")
-	@Size (min=3, max=50, message = "O País deve conter de 3 até 50 caracteres")
-	private String pais;
-	
-	@NotBlank (message = "É obrigatório preencher o complemento")
-	@Size (min=3, max=50, message = "O complemento deve conter de 3 até 50 caracteres")
-	private String complemento;
+	private String localidade;
 	
 	@NotBlank (message = "É obrigatório preencher o Estado")
-	@Size (min=3, max=50, message = "O Estado deve conter de 3 até 50 caracteres")
-	private String estado;
+	@Size (min=2, max=50, message = "O Estado deve conter de 3 até 50 caracteres")
+	private String uf;
 	
 	@NotBlank (message = "É obrigatório preencher o númerro")
 	@Size (min=1, max=50, message = "O número deve conter de 1 até 50 caracteres")
 	private String numero;
+	
+	@NotBlank (message = "É obrigatório preencher o País")
+	@Size (min=3, max=50, message = "O País deve conter de 3 até 50 caracteres")
+	private String pais;
 	
 	@OneToMany(mappedBy = "endereco", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("endereco")
@@ -78,11 +77,11 @@ public class EnderecoModel {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public String getCidade() {
-		return cidade;
+	public String getLocalidade() {
+		return localidade;
 	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setLocalidade(String cidade) {
+		this.localidade = cidade;
 	}
 	public String getCep() {
 		return cep;
@@ -102,12 +101,6 @@ public class EnderecoModel {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public String getEstado() {
-		return estado;
-	}
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
 	public String getNumero() {
 		return numero;
 	}
@@ -119,6 +112,12 @@ public class EnderecoModel {
 	}
 	public void setUsuarios(List<UsuarioModel> usuarios) {
 		this.usuarios = usuarios;
+	}
+	public String getUf() {
+		return uf;
+	}
+	public void setUf(String uf) {
+		this.uf = uf;
 	}
 	
 	
