@@ -12,9 +12,11 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "tb_produtos")
-
 public class ProdutosModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,53 +38,5 @@ public class ProdutosModel {
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private CategoriaModel categoria;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-
-	public int getEstoque() {
-		return estoque;
-	}
-
-	public void setEstoque(int estoque) {
-		this.estoque = estoque;
-	}
-
-	public String getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
-	}
-
-	public CategoriaModel getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(CategoriaModel categoria) {
-		this.categoria = categoria;
-	}
 
 }
