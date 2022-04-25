@@ -13,8 +13,8 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_produtos")
 
+@Table(name = "tb_produtos")
 public class ProdutosModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
