@@ -14,6 +14,9 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "tb_categoria")
 public class CategoriaModel {
@@ -29,29 +32,5 @@ public class CategoriaModel {
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List<ProdutosModel> produtos;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public List<ProdutosModel> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<ProdutosModel> produtos) {
-		this.produtos = produtos;
-	}
 
 }
