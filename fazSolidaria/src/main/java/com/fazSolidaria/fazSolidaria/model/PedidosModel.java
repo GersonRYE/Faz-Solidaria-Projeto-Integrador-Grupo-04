@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "tb_historico")
-public class HistoricoPedidosModel {
+public class PedidosModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
