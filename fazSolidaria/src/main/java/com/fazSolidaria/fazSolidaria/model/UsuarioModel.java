@@ -15,6 +15,9 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "tb_cliente")
 public class UsuarioModel {
@@ -49,79 +52,8 @@ public class UsuarioModel {
 	private String foto;
 
 	@ManyToOne
-	@JsonIgnoreProperties("usuarios")
+	@JsonIgnoreProperties("usuario")
 	private EnderecoModel endereco;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public String getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(String dataNasc) {
-		this.dataNasc = dataNasc;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-
-	public EnderecoModel getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(EnderecoModel endereco) {
-		this.endereco = endereco;
-	}
 
 }
