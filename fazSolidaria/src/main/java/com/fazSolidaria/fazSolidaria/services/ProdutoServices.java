@@ -14,34 +14,25 @@ public class ProdutoServices {
 
 	@Autowired
 	ProdutoRepository produtoRepository;
-	
-	public List<ProdutoModel> mostrarProdutosCadastrados(){
+
+	public List<ProdutoModel> mostrarProdutosCadastrados() {
 		return produtoRepository.findAll();
 	}
-	
-	public ProdutoModel mostrarProdutoPeloNome(String nome){
+
+	public ProdutoModel mostrarProdutoPeloNome(String nome) {
 		return produtoRepository.findAllByNomeIgnoreCase(nome);
 	}
-	
+
 	public ProdutoModel cadastrarProduto(ProdutoModel produto) {
 		return produtoRepository.save(produto);
 	}
-	
+
 	public ProdutoModel salvarAlteracao(ProdutoModel produto) {
 		return produtoRepository.save(produto);
 	}
-	
-	public Optional<ProdutoModel> alterarInformacaoProduto(Long produto) {
-		return produtoRepository.findById(produto);
-	}
-	
+
 	public Optional<ProdutoModel> codigoProduto(Long produto) {
 		return produtoRepository.findById(produto);
 	}
-	
-	public Optional<ProdutoModel> deletarProduto(Long id) {
-		return produtoRepository.findById(id);
-	}
-	
-	
+
 }
