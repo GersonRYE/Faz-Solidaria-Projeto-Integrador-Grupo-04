@@ -27,7 +27,15 @@ public class ProdutoServices {
 		return produtoRepository.save(produto);
 	}
 	
+	public ProdutoModel salvarAlteracao(ProdutoModel produto) {
+		return produtoRepository.save(produto);
+	}
+	
 	public Optional<ProdutoModel> alterarInformacaoProduto(Long produto) {
+		return produtoRepository.findById(produto);
+	}
+	
+	public Optional<ProdutoModel> codigoProduto(Long produto) {
 		return produtoRepository.findById(produto);
 	}
 	
