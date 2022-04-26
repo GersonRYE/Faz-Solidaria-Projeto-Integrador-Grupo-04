@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fazSolidaria.fazSolidaria.model.ProdutoModel;
+import com.fazSolidaria.fazSolidaria.repository.ProdutoRepository;
 import com.fazSolidaria.fazSolidaria.services.ProdutoServices;
 
 @RestController
@@ -27,17 +28,15 @@ import com.fazSolidaria.fazSolidaria.services.ProdutoServices;
 public class ProdutosController {
 
 	@Autowired
+	ProdutoRepository produtoRepository;
+	
+	@Autowired
 	private ProdutoServices produtoService;
 
 	@GetMapping
 	public ResponseEntity<List<ProdutoModel>> MostrarProdutosCadastrados() {
 		return ResponseEntity.ok(produtoService.mostrarProdutosCadastrados());
 	}
-
-//	@GetMapping(path = "/{id}")
-//	public ResponseEntity<ProdutoModel> GetById(@PathVariable long id) {
-//		return produtoService.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
-//	}
 
 	@GetMapping(path = "/nome")
 	public ResponseEntity<ProdutoModel> MostrarProdutoPeloNome(@Valid @RequestParam String nome) {
@@ -48,33 +47,18 @@ public class ProdutosController {
 	public ResponseEntity<ProdutoModel> CadastrarProduto(@Valid @RequestBody ProdutoModel nomeProduto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.cadastrarProduto(nomeProduto));
 	}
-
-//	@PutMapping
-//	public ResponseEntity<ProdutoModel> put(@Valid @RequestBody ProdutoModel nomeProduto) {
-//		return repository.findById(nomeProduto.getId()).map(resp -> {
-//			return ResponseEntity.ok().body(repository.save(nomeProduto));
-//		}).orElse(ResponseEntity.notFound().build());
-//	}
 	
 	@PutMapping
 	public ResponseEntity<ProdutoModel> AlterarInformacaoProduto(@Valid @RequestBody ProdutoModel produto){
-		return produtoService.alterarInformacaoProduto(produto.getId()).map(resp ->{
+		return produtoService.codigoProduto(produto.getId()).map(resp ->{
 			return ResponseEntity.ok().body(produtoService.salvarAlteracao(produto));
 		}).orElse(ResponseEntity.notFound().build());
 	}
-//
-//	@DeleteMapping(path = "/{id}")
-//	public ResponseEntity<?> delete(@Valid @PathVariable long id) {
-//		return repository.findById(id).map(resp -> {
-//			repository.deleteById(id);
-//			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-//		}).orElse(ResponseEntity.notFound().build());
-//	}
-	
+
 	@DeleteMapping(path = "/{id}")
-	public ResponseEntity<?> DeletarProduto(@Valid @PathVariable long id){
-		return produtoService.deletarProduto(id).map(resp -> {
-			produtoService.codigoProduto(id);
+	public ResponseEntity<?> DeletarProduto(@Valid @PathVariable long id) {
+		return produtoService.codigoProduto(id).map(resp -> {
+			produtoRepository.deleteById(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
