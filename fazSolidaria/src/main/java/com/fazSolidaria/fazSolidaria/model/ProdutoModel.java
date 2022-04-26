@@ -1,5 +1,8 @@
 package com.fazSolidaria.fazSolidaria.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +30,7 @@ public class ProdutoModel {
 	private String nome;
 
 	@NotNull(message = "O preço é obrigatório")
-	private double preco;
+	private BigDecimal preco;
 
 	@NotNull(message = "Informar o estoque é obrigatório")
 	private int estoque;
@@ -38,5 +41,9 @@ public class ProdutoModel {
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private CategoriaModel categoria;
+	
+	public void moedaDuasCasasDecimais() {
+		getPreco().setScale(2, RoundingMode.HALF_UP);
+	}
 
 }
