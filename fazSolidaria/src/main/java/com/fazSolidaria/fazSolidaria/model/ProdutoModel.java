@@ -16,8 +16,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tb_produtos")
-public class ProdutosModel {
+@Table(name = "tb_produto")
+public class ProdutoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
