@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@EnableWebSecurity // habilita a configuração da web security
+@EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{ 
 	
 	@Autowired
@@ -23,7 +23,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(userDetailsService);
 	}
 	
-	@Bean //serve para exportar uma classe para o Spring, para que ele consiga carregar essa classe e fazer injeção de dependência dela em outra classes.
+	@Bean 
 	public PasswordEncoder passwordEncoder() {
 		
 		//retornar um nova senha criptografada

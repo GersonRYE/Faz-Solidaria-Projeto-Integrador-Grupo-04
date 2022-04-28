@@ -37,6 +37,7 @@ public class ProdutosModel {
 	@JsonIgnoreProperties("produtos")
 	private CategoriaModel categoria;
 
+
 	public long getId() {
 		return id;
 	}

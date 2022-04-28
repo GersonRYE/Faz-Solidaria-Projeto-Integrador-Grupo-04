@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "tb_historico")
+@Table(name = "tb_pedido") //tabela HISTORICO PEDIDO
 public class PedidosModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +24,9 @@ public class PedidosModel {
 
 	@NotBlank(message = "Total do Pedido é obrigatório")
 	private double totalPedido;
+	
+	@ManyToOne
+	private ProdutosModel produtos;
 
 	public long getId() {
 		return id;
