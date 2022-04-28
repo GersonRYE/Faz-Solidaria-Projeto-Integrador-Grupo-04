@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
@@ -21,20 +22,26 @@ public class ItemPedidoModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@JoinColumn(nullable = false, name = "pedido_id")
+	@ManyToOne
+	private PedidoModel pedido;
+
+	@JoinColumn(nullable = false, name = "produto_id")
+	@ManyToOne
+	private ProdutoModel produto;
+	
 	private BigDecimal precoUnitario;
 
 	private BigDecimal precoTotal;
 
 	private Integer quantidade;
-
-	@ManyToOne
-	private PedidoModel pedido;
-
-	@ManyToOne
-	private ProdutoModel produto;
+	
+	public void precoUnitario() {
+		 setPrecoUnitario(getProduto().getPreco());
+	}
 	
 	public void calcularPrecoTotal() {
-		BigDecimal precoUnitario = this.getPrecoUnitario();
+		BigDecimal precoUnitario = this.getProduto().getPreco();
 		Integer quantidade = this.getQuantidade();
 		if (precoUnitario == null) {
 			precoUnitario = BigDecimal.ZERO;
@@ -44,4 +51,5 @@ public class ItemPedidoModel {
 		}
 		this.setPrecoTotal(precoUnitario.multiply(new BigDecimal(quantidade)));
 	}
+
 }

@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"descricao\": \"Frutas\"\r\n}",
+					"raw": "{\r\n   \"descricao\": \"Frutas\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

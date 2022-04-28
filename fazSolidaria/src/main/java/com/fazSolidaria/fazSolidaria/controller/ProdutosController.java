@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fazSolidaria.fazSolidaria.model.ProdutoModel;
-import com.fazSolidaria.fazSolidaria.repository.ProdutoRepository;
 import com.fazSolidaria.fazSolidaria.services.ProdutoServices;
 
 @RestController
@@ -27,8 +26,6 @@ import com.fazSolidaria.fazSolidaria.services.ProdutoServices;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutosController {
 
-	@Autowired
-	ProdutoRepository produtoRepository;
 	
 	@Autowired
 	private ProdutoServices produtoService;
@@ -48,18 +45,31 @@ public class ProdutosController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.cadastrarProduto(nomeProduto));
 	}
 	
+//	@PutMapping
+//	public ResponseEntity<ProdutoModel> AlterarInformacaoProduto(@Valid @RequestBody ProdutoModel produto){
+//		return produtoService.codigoProduto(produto.getId()).map(resp ->{
+//			return ResponseEntity.ok().body(produtoService.salvarAlteracao(produto));
+//		}).orElse(ResponseEntity.notFound().build());
+//	}
+	
 	@PutMapping
-	public ResponseEntity<ProdutoModel> AlterarInformacaoProduto(@Valid @RequestBody ProdutoModel produto){
-		return produtoService.codigoProduto(produto.getId()).map(resp ->{
-			return ResponseEntity.ok().body(produtoService.salvarAlteracao(produto));
-		}).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<ProdutoModel> AlterarInformação (@Valid @RequestBody ProdutoModel produto ){
+		ProdutoModel alterarProduto = produtoService.codigoProduto(produto.getId());
+		//alterarProduto.setNome(produto.getNome());
+		produtoService.copiaInfoNovas(produto, alterarProduto);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(produtoService.cadastrarProduto(alterarProduto));
 	}
 
+//	@DeleteMapping(path = "/{id}")
+//	public ResponseEntity<?> DeletarProduto(@Valid @PathVariable long id) {
+//		return produtoService.codigoProduto(id).map(resp -> {
+//			produtoRepository.deleteById(id);
+//			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//		}).orElse(ResponseEntity.notFound().build());
+//	}
+	
 	@DeleteMapping(path = "/{id}")
-	public ResponseEntity<?> DeletarProduto(@Valid @PathVariable long id) {
-		return produtoService.codigoProduto(id).map(resp -> {
-			produtoRepository.deleteById(id);
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}).orElse(ResponseEntity.notFound().build());
+	public void DeletarProduto(@Valid @PathVariable long id){
+		produtoService.excluir(id);
 	}
 }

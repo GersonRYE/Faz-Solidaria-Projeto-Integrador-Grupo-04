@@ -21,6 +21,7 @@ public class ConsumirCepController implements Serializable {
 
   private static final long serialVersionUID = 6046704732666502085L;
 
+  
   /**
    * @PathVariable é utilizado quando o valor da variável é passada diretamente na URL, sem a utilização de interrogação (?). 
    * O valor poderá ser acessado atraves do parametro cep que é do tipo String.

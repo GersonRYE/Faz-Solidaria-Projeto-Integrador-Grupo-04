@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -18,7 +17,6 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tb_categoria")
 public class CategoriaModel {
 
 	@Id
@@ -27,7 +25,7 @@ public class CategoriaModel {
 
 	@NotBlank(message="descrição obrigatório")
 	@Size(min = 2, max = 50, message = "a descrição deve ser entre 2 a 50 caracteres")
-	private String descricao;
+	private String tipoAlimento;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")

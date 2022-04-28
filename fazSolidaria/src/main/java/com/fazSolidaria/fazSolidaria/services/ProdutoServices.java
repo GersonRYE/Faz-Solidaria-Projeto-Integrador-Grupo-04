@@ -1,8 +1,8 @@
 package com.fazSolidaria.fazSolidaria.services;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +27,22 @@ public class ProdutoServices {
 		return produtoRepository.save(produto);
 	}
 
-	public ProdutoModel salvarAlteracao(ProdutoModel produto) {
-		return produtoRepository.save(produto);
+//	public ProdutoModel salvarAlteracao(ProdutoModel produto) {
+//		return produtoRepository.save(produto);
+//	}
+
+	public ProdutoModel codigoProduto(Long produto) {
+		return produtoRepository.findById(produto).orElseThrow(() -> new RuntimeException("Não Existe - NOT FOUND"));
 	}
 
-	public Optional<ProdutoModel> codigoProduto(Long produto) {
-		return produtoRepository.findById(produto);
+	public void excluir(Long id) {
+		codigoProduto(id);
+		produtoRepository.deleteById(id);
+	}
+
+	// origem-destino do objeto
+	public void copiaInfoNovas(ProdutoModel proOrigem, ProdutoModel proDestino) {
+		BeanUtils.copyProperties(proOrigem, proDestino);
 	}
 
 }

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fazSolidaria.fazSolidaria.model.CategoriaModel;
-import com.fazSolidaria.fazSolidaria.repository.CategoriaRepository;
+import com.fazSolidaria.fazSolidaria.services.CategoriaService;
 
 @RestController
 @RequestMapping("/categorias")
@@ -27,41 +27,42 @@ import com.fazSolidaria.fazSolidaria.repository.CategoriaRepository;
 public class CategoriaController {
 
 	@Autowired
-	private CategoriaRepository repository;
+	private CategoriaService categoriaService;
 
 	@GetMapping
-	public ResponseEntity<List<CategoriaModel>> GetAll() {
-		return ResponseEntity.ok(repository.findAll());
-
+	public ResponseEntity<List<CategoriaModel>> MostrarTodasCategorias() {
+		return ResponseEntity.ok(categoriaService.mostrarTodasCategorias());
 	}
-
+	
+//	@GetMapping(path = "/{id}")
+//	public ResponseEntity<CategoriaModel> GetById(@PathVariable long id) {
+//		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+//	}
+	
 	@GetMapping(path = "/{id}")
-	public ResponseEntity<CategoriaModel> GetById(@PathVariable long id) {
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<CategoriaModel> BuscarPeloCodProduto (@PathVariable long id){
+		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.codigoCategoria(id));
 	}
 
-	@GetMapping(path = "/descricao")
-	public ResponseEntity<List<CategoriaModel>> GetAllDescricao(@RequestParam String descricao) {
-		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
+	@GetMapping(path = "/categoria")
+	public ResponseEntity<CategoriaModel> BuscarCategoriaNome(@RequestParam String nome) {
+		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscarPeloNome(nome));
 	}
 
 	@PostMapping
-	public ResponseEntity<CategoriaModel> post(@Valid @RequestBody CategoriaModel categoria) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
+	public ResponseEntity<CategoriaModel> CadastrarCategoria(@Valid @RequestBody CategoriaModel categoria) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.cadastrarOuAtualizarCategoria(categoria));
 	}
 
 	@PutMapping
-	public ResponseEntity<CategoriaModel> put(@Valid @RequestBody CategoriaModel categoria) {
-		return repository.findById(categoria.getId())
-				.map(resp -> ResponseEntity.status(HttpStatus.OK).body(repository.save(categoria)))
-				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+	public ResponseEntity<CategoriaModel> AtualizarCategoria(@Valid @RequestBody CategoriaModel categoria) {
+		CategoriaModel alterarCategoria = categoriaService.codigoCategoria(categoria.getId());
+		categoriaService.atualizaInformacao(categoria, alterarCategoria);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(categoriaService.cadastrarOuAtualizarCategoria(categoria));
 	}
 
 	@DeleteMapping(path = "/{id}")
-	public ResponseEntity<?> delete(@PathVariable long id) {
-		return repository.findById(id).map(resp -> {
-			repository.deleteById(id);
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+	public void DeletarCategoria(@Valid @PathVariable long id) {
+		categoriaService.deletarCategoria(id);
 	}
 }
