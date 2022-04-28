@@ -1,1 +1,0 @@
-insert into categoria (id, tipoAlismento) values (1, 'Frutas');
