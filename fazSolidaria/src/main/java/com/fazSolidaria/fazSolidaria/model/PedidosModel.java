@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "tb_historico")
+@Table(name = "tb_pedido") //tabela HISTORICO PEDIDO
 public class PedidosModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

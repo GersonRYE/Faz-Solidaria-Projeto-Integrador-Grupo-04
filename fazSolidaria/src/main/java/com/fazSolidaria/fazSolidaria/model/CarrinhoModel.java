@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "tb_carrinho")
-public class DetalhesPedidoModel {
+@Table(name = "tb_carrinho") //tabela CARRINHO
+public class CarrinhoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
