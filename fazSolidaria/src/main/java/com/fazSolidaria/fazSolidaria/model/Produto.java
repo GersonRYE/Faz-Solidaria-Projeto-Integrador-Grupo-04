@@ -21,7 +21,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @Entity
-public class ProdutoModel {
+public class Produto {
 
 	@EqualsAndHashCode.Include
 	@Id
@@ -44,7 +44,7 @@ public class ProdutoModel {
 	@JoinColumn(name = "categoria_id", nullable = false)
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
-	private CategoriaModel categoria;
+	private Categoria categoria;
 
 	public void moedaDuasCasasDecimais() {
 		getPreco().setScale(2, RoundingMode.HALF_UP);

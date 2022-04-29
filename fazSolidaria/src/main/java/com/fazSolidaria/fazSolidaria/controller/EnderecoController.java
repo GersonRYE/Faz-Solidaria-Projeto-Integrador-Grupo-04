@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fazSolidaria.fazSolidaria.model.EnderecoModel;
+import com.fazSolidaria.fazSolidaria.model.Endereco;
 import com.fazSolidaria.fazSolidaria.repository.EnderecoRepository;
 
 @RestController
@@ -30,28 +30,28 @@ public class EnderecoController {
 	 private EnderecoRepository repository;
 
 	@GetMapping
-	public ResponseEntity<List<EnderecoModel>>GetAll(){
+	public ResponseEntity<List<Endereco>>GetAll(){
 		return ResponseEntity.ok(repository.findAll());
 	
 	}
 	@GetMapping (path = "/{id}")
-	public ResponseEntity <EnderecoModel>GetById(@PathVariable long id){
+	public ResponseEntity <Endereco>GetById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 	@GetMapping (path = "/uf")
-	public ResponseEntity<List<EnderecoModel>>GettAllUf(@RequestParam String uf){
+	public ResponseEntity<List<Endereco>>GettAllUf(@RequestParam String uf){
 		return ResponseEntity.ok(repository.findAllByUfContainingIgnoreCase(uf));
 	}
 	@GetMapping (path = "/pais")
-	public ResponseEntity<List<EnderecoModel>>GettAllPais(@RequestParam String pais){
+	public ResponseEntity<List<Endereco>>GettAllPais(@RequestParam String pais){
 		return ResponseEntity.ok(repository.findAllByPaisContainingIgnoreCase(pais));
 	}
 	@PostMapping 
-	public ResponseEntity<EnderecoModel> post(@RequestBody EnderecoModel endereco){
+	public ResponseEntity<Endereco> post(@RequestBody Endereco endereco){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(endereco));
 	}
 	@PutMapping
-	public ResponseEntity<EnderecoModel> put(@Valid @RequestBody EnderecoModel endereco){
+	public ResponseEntity<Endereco> put(@Valid @RequestBody Endereco endereco){
 		return repository.findById(endereco.getId()).map(resp -> ResponseEntity.status(HttpStatus.OK).body(repository.save(endereco))).orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 	}
 	@DeleteMapping (path = "/{id}")

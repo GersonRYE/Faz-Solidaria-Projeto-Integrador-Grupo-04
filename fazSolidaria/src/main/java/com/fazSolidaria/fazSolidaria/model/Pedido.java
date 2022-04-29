@@ -19,7 +19,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class PedidoModel {
+public class Pedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,16 +34,16 @@ public class PedidoModel {
 
 	@ManyToOne
 	@JoinColumn(name = "cliente_id", nullable = false)
-	private UsuarioModel cliente;
+	private Usuario cliente;
 
 	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-	private List<ItemPedidoModel> itens;
+	private List<ItemPedido> itens;
 
 ////	@NotBlank(message = "A quantidade é obrigatório")
 //	private int quantidade;
 
 	public void calcularValorTotal() {
-		getItens().forEach(ItemPedidoModel::calcularPrecoTotal);
+		getItens().forEach(ItemPedido::calcularPrecoTotal);
 		this.subTotal = getItens().stream().map(item -> item.getPrecoTotal()).reduce(BigDecimal.ZERO, BigDecimal::add);
 		this.valorTotal = this.subTotal;
 	}

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fazSolidaria.fazSolidaria.model.UsuarioModel;
+import com.fazSolidaria.fazSolidaria.model.Usuario;
 import com.fazSolidaria.fazSolidaria.services.UsuarioService;
 
 @RestController
@@ -29,7 +29,7 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 	@GetMapping
-	public ResponseEntity<List<UsuarioModel>> GetAll() {
+	public ResponseEntity<List<Usuario>> GetAll() {
 		return ResponseEntity.ok(usuarioService.mostrarTodosUsuarios());
 	}
 
@@ -39,18 +39,18 @@ public class UsuarioController {
 //	}
 
 	@GetMapping(path = "/{id}")
-	public ResponseEntity<UsuarioModel> BuscarUsuarioPeloId(@PathVariable long id) {
-		UsuarioModel buscaUsuario = usuarioService.codigoUsuario(id);
+	public ResponseEntity<Usuario> BuscarUsuarioPeloId(@PathVariable long id) {
+		Usuario buscaUsuario = usuarioService.codigoUsuario(id);
 		return ResponseEntity.ok(buscaUsuario);
 	}
 
 	@GetMapping(path = "/nome")
-	public ResponseEntity<UsuarioModel> getByNome(@Valid @RequestParam String nome) {
+	public ResponseEntity<Usuario> getByNome(@Valid @RequestParam String nome) {
 		return ResponseEntity.ok(usuarioService.buscarNome(nome));
 	}
 
 	@PostMapping
-	public ResponseEntity<UsuarioModel> post(@Valid @RequestBody UsuarioModel usuario) {
+	public ResponseEntity<Usuario> post(@Valid @RequestBody Usuario usuario) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.cadastrarUsuario(usuario));
 	}
 
@@ -62,8 +62,8 @@ public class UsuarioController {
 //	}
 
 	@PutMapping
-	public ResponseEntity<UsuarioModel> AlterarCadastro(@Valid @RequestBody UsuarioModel usuario) {
-		UsuarioModel alteraCadastroUsuario = usuarioService.codigoUsuario(usuario.getId());
+	public ResponseEntity<Usuario> AlterarCadastro(@Valid @RequestBody Usuario usuario) {
+		Usuario alteraCadastroUsuario = usuarioService.codigoUsuario(usuario.getId());
 		usuarioService.copiaInfoNovas(usuario, alteraCadastroUsuario);
 		return ResponseEntity.ok().body(usuarioService.atualizarCadastro(alteraCadastroUsuario));
 	}

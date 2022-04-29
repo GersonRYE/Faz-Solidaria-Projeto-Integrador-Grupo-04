@@ -3,10 +3,10 @@ package com.fazSolidaria.fazSolidaria.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.fazSolidaria.fazSolidaria.model.CategoriaModel;
+import com.fazSolidaria.fazSolidaria.model.Categoria;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<CategoriaModel, Long> {
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
-	public CategoriaModel findAllByTipoAlimentoIgnoreCase(String descricao);
+	public Categoria findAllByTipoAlimentoIgnoreCase(String descricao);
 }

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fazSolidaria.fazSolidaria.model.ProdutoModel;
+import com.fazSolidaria.fazSolidaria.model.Produto;
 import com.fazSolidaria.fazSolidaria.services.ProdutoServices;
 
 @RestController
@@ -31,17 +31,17 @@ public class ProdutosController {
 	private ProdutoServices produtoService;
 
 	@GetMapping
-	public ResponseEntity<List<ProdutoModel>> MostrarProdutosCadastrados() {
+	public ResponseEntity<List<Produto>> MostrarProdutosCadastrados() {
 		return ResponseEntity.ok(produtoService.mostrarProdutosCadastrados());
 	}
 
 	@GetMapping(path = "/nome")
-	public ResponseEntity<ProdutoModel> MostrarProdutoPeloNome(@Valid @RequestParam String nome) {
+	public ResponseEntity<Produto> MostrarProdutoPeloNome(@Valid @RequestParam String nome) {
 		return ResponseEntity.ok(produtoService.mostrarProdutoPeloNome(nome));
 	}
 
 	@PostMapping
-	public ResponseEntity<ProdutoModel> CadastrarProduto(@Valid @RequestBody ProdutoModel nomeProduto) {
+	public ResponseEntity<Produto> CadastrarProduto(@Valid @RequestBody Produto nomeProduto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.cadastrarProduto(nomeProduto));
 	}
 	
@@ -53,8 +53,8 @@ public class ProdutosController {
 //	}
 	
 	@PutMapping
-	public ResponseEntity<ProdutoModel> AlterarInformação (@Valid @RequestBody ProdutoModel produto ){
-		ProdutoModel alterarProduto = produtoService.codigoProduto(produto.getId());
+	public ResponseEntity<Produto> AlterarInformação (@Valid @RequestBody Produto produto ){
+		Produto alterarProduto = produtoService.codigoProduto(produto.getId());
 		//alterarProduto.setNome(produto.getNome());
 		produtoService.copiaInfoNovas(produto, alterarProduto);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(produtoService.cadastrarProduto(alterarProduto));

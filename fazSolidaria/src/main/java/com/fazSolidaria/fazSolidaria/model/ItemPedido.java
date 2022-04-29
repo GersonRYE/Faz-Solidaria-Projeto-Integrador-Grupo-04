@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class ItemPedidoModel {
+public class ItemPedido {
 
 	@EqualsAndHashCode.Include
 	@Id
@@ -24,11 +24,11 @@ public class ItemPedidoModel {
 
 	@JoinColumn(nullable = false, name = "pedido_id")
 	@ManyToOne
-	private PedidoModel pedido;
+	private Pedido pedido;
 
 	@JoinColumn(nullable = false, name = "produto_id")
 	@ManyToOne
-	private ProdutoModel produto;
+	private Produto produto;
 	
 	private BigDecimal precoUnitario;
 

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fazSolidaria.fazSolidaria.model.CategoriaModel;
+import com.fazSolidaria.fazSolidaria.model.Categoria;
 import com.fazSolidaria.fazSolidaria.services.CategoriaService;
 
 @RestController
@@ -30,7 +30,7 @@ public class CategoriaController {
 	private CategoriaService categoriaService;
 
 	@GetMapping
-	public ResponseEntity<List<CategoriaModel>> MostrarTodasCategorias() {
+	public ResponseEntity<List<Categoria>> MostrarTodasCategorias() {
 		return ResponseEntity.ok(categoriaService.mostrarTodasCategorias());
 	}
 	
@@ -40,23 +40,23 @@ public class CategoriaController {
 //	}
 	
 	@GetMapping(path = "/{id}")
-	public ResponseEntity<CategoriaModel> BuscarPeloCodProduto (@PathVariable long id){
+	public ResponseEntity<Categoria> BuscarPeloCodProduto (@PathVariable long id){
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.codigoCategoria(id));
 	}
 
 	@GetMapping(path = "/categoria")
-	public ResponseEntity<CategoriaModel> BuscarCategoriaNome(@RequestParam String nome) {
+	public ResponseEntity<Categoria> BuscarCategoriaNome(@RequestParam String nome) {
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscarPeloNome(nome));
 	}
 
 	@PostMapping
-	public ResponseEntity<CategoriaModel> CadastrarCategoria(@Valid @RequestBody CategoriaModel categoria) {
+	public ResponseEntity<Categoria> CadastrarCategoria(@Valid @RequestBody Categoria categoria) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.cadastrarOuAtualizarCategoria(categoria));
 	}
 
 	@PutMapping
-	public ResponseEntity<CategoriaModel> AtualizarCategoria(@Valid @RequestBody CategoriaModel categoria) {
-		CategoriaModel alterarCategoria = categoriaService.codigoCategoria(categoria.getId());
+	public ResponseEntity<Categoria> AtualizarCategoria(@Valid @RequestBody Categoria categoria) {
+		Categoria alterarCategoria = categoriaService.codigoCategoria(categoria.getId());
 		categoriaService.atualizaInformacao(categoria, alterarCategoria);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(categoriaService.cadastrarOuAtualizarCategoria(categoria));
 	}

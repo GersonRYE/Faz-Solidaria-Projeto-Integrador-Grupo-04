@@ -19,7 +19,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class UsuarioModel {
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +53,7 @@ public class UsuarioModel {
 	@JoinColumn(name = "endereco_id", nullable = false)
 	@ManyToOne
 	@JsonIgnoreProperties("usuario")
-	private EnderecoModel endereco;
+	private Endereco endereco;
 
 
 }

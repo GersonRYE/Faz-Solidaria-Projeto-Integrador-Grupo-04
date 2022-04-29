@@ -3,9 +3,9 @@ package com.fazSolidaria.fazSolidaria.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.fazSolidaria.fazSolidaria.model.PedidoModel;
+import com.fazSolidaria.fazSolidaria.model.Pedido;
 
 @Repository
-public interface PedidoRepository extends JpaRepository<PedidoModel, Long> {
+public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
 }

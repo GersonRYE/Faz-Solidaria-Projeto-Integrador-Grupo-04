@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fazSolidaria.fazSolidaria.model.ItemPedidoModel;
+import com.fazSolidaria.fazSolidaria.model.ItemPedido;
 import com.fazSolidaria.fazSolidaria.services.ItemPedidoService;
 
 @RestController
@@ -27,17 +27,17 @@ public class ItemPedidoController {
 	ItemPedidoService servico;
 	
 	@GetMapping
-	public ResponseEntity<List<ItemPedidoModel>> MostrarTodoItensPedidos(){
+	public ResponseEntity<List<ItemPedido>> MostrarTodoItensPedidos(){
 		return ResponseEntity.ok().body(servico.mostrarTodosItensPedido());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<ItemPedidoModel> BuscarIdItemPedido(@Valid @PathVariable Long id){
+	public ResponseEntity<ItemPedido> BuscarIdItemPedido(@Valid @PathVariable Long id){
 		return ResponseEntity.ok().body(servico.codigoItemPedido(id));
 	}
 	
 	@PostMapping
-	public ResponseEntity<ItemPedidoModel> CadastrarItemPedido(@Valid @RequestBody ItemPedidoModel item){
+	public ResponseEntity<ItemPedido> CadastrarItemPedido(@Valid @RequestBody ItemPedido item){
 		System.out.println(item.getProduto().getId());
 		return ResponseEntity.status(HttpStatus.CREATED).body(servico.cadastrarOuAtualizarCategoria(item));
 	}

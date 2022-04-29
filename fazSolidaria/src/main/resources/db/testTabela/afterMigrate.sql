@@ -1,8 +1,8 @@
 /*Inicio - Inserir valores tabela categoria*/
-insert into categoria (tipoAlimento) values ('Frutas');
-insert into categoria (tipoAlimento) values ('Verduras');
-insert into categoria (tipoAlimento) values ('Legumes');
-insert into categoria (tipoAlimento) values ('Grãos');
+insert into categoria (tipo_alimento) values ('Frutas');
+insert into categoria (tipo_alimento) values ('Verduras');
+insert into categoria (tipo_alimento) values ('Legumes');
+insert into categoria (tipo_alimento) values ('Grãos');
 /*Fim - Inserir valores tabela categoria*/
 
 /*Inicio - Inserir valores tabela endereco*/

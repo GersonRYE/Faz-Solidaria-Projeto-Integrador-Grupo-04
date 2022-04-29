@@ -17,7 +17,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class EnderecoModel {
+public class Endereco {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,6 +57,6 @@ public class EnderecoModel {
 
 	@OneToMany(mappedBy = "endereco", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("endereco")
-	private List<UsuarioModel> usuario;
+	private List<Usuario> usuario;
 
 }

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fazSolidaria.fazSolidaria.model.ItemPedidoModel;
-import com.fazSolidaria.fazSolidaria.model.ProdutoModel;
+import com.fazSolidaria.fazSolidaria.model.ItemPedido;
+import com.fazSolidaria.fazSolidaria.model.Produto;
 import com.fazSolidaria.fazSolidaria.repository.ItemPedidoRepository;
 
 @Service
@@ -18,17 +18,17 @@ public class ItemPedidoService {
 	@Autowired
 	ProdutoServices produtoService ;
 	
-	public List<ItemPedidoModel> mostrarTodosItensPedido () {
+	public List<ItemPedido> mostrarTodosItensPedido () {
 		return repository.findAll();
 	}
 	
-	public ItemPedidoModel codigoItemPedido(Long id) {
+	public ItemPedido codigoItemPedido(Long id) {
 		return repository.findById(id).orElseThrow(()-> new RuntimeException("Não Existe! - NOT FOUND"));
 	}
 	
 	
-	public ItemPedidoModel cadastrarOuAtualizarCategoria(ItemPedidoModel itemPedido) {
-	ProdutoModel pegaProduto = produtoService.codigoProduto(itemPedido.getProduto().getId());
+	public ItemPedido cadastrarOuAtualizarCategoria(ItemPedido itemPedido) {
+	Produto pegaProduto = produtoService.codigoProduto(itemPedido.getProduto().getId());
 	itemPedido.setProduto(pegaProduto);
 	itemPedido.precoUnitario();
 	itemPedido.calcularPrecoTotal();

@@ -6,7 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fazSolidaria.fazSolidaria.model.ProdutoModel;
+import com.fazSolidaria.fazSolidaria.model.Produto;
 import com.fazSolidaria.fazSolidaria.repository.ProdutoRepository;
 
 @Service
@@ -15,15 +15,15 @@ public class ProdutoServices {
 	@Autowired
 	ProdutoRepository produtoRepository;
 
-	public List<ProdutoModel> mostrarProdutosCadastrados() {
+	public List<Produto> mostrarProdutosCadastrados() {
 		return produtoRepository.findAll();
 	}
 
-	public ProdutoModel mostrarProdutoPeloNome(String nome) {
+	public Produto mostrarProdutoPeloNome(String nome) {
 		return produtoRepository.findAllByNomeIgnoreCase(nome);
 	}
 
-	public ProdutoModel cadastrarProduto(ProdutoModel produto) {
+	public Produto cadastrarProduto(Produto produto) {
 		return produtoRepository.save(produto);
 	}
 
@@ -31,7 +31,7 @@ public class ProdutoServices {
 //		return produtoRepository.save(produto);
 //	}
 
-	public ProdutoModel codigoProduto(Long produto) {
+	public Produto codigoProduto(Long produto) {
 		return produtoRepository.findById(produto).orElseThrow(() -> new RuntimeException("Não Existe - NOT FOUND"));
 	}
 
@@ -41,7 +41,7 @@ public class ProdutoServices {
 	}
 
 	// origem-destino do objeto
-	public void copiaInfoNovas(ProdutoModel proOrigem, ProdutoModel proDestino) {
+	public void copiaInfoNovas(Produto proOrigem, Produto proDestino) {
 		BeanUtils.copyProperties(proOrigem, proDestino);
 	}
 

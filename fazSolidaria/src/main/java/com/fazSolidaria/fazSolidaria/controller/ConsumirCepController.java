@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.fazSolidaria.fazSolidaria.model.EnderecoModel;
+import com.fazSolidaria.fazSolidaria.model.Endereco;
 
 /**
  * @RestControler faz a combinação de @Controller e @ResponseBody, simplificando a criação de serviços web RESTful.
@@ -32,7 +32,7 @@ public class ConsumirCepController implements Serializable {
    * @return ResponseEntity<EnderecoTO>
    */
   @GetMapping(value="/getCep/{cep}")
-  public ResponseEntity<EnderecoModel> doObterCep(@PathVariable(name = "cep") String cep) {
+  public ResponseEntity<Endereco> doObterCep(@PathVariable(name = "cep") String cep) {
 
     //
     /**
@@ -62,12 +62,12 @@ public class ConsumirCepController implements Serializable {
      * 
      * Após a requisição ser concluida, o retorno será armazenado no enderecoTO, com todos os dados já mapeados.
      */
-    EnderecoModel enderecoModel = restTemplate.getForObject(uri, EnderecoModel.class, params);
+    Endereco enderecoModel = restTemplate.getForObject(uri, Endereco.class, params);
 
     /**
      * ResponseEntity permite retornar para tela os dados encontratos, o primeiro parametro recebe os dados, o segundo o status do response. 
      */
-    return new ResponseEntity<EnderecoModel>(enderecoModel, HttpStatus.OK);
+    return new ResponseEntity<Endereco>(enderecoModel, HttpStatus.OK);
   }
 
 }
