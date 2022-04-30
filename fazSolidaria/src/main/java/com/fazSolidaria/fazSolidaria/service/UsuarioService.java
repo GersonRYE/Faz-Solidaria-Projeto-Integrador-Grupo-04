@@ -1,9 +1,14 @@
 package com.fazSolidaria.fazSolidaria.service;
 
+import java.nio.charset.Charset;
+import java.util.Optional;
+
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.fazSolidaria.fazSolidaria.model.UsuarioLogin;
 import com.fazSolidaria.fazSolidaria.model.UsuarioModel;
 import com.fazSolidaria.fazSolidaria.repository.UsuarioRepository;
 
@@ -21,7 +26,7 @@ public class UsuarioService {
 		return repository.save(usuario);
 	}
 	
-/*	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> user){
+	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> user){
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional<UsuarioModel> usuario = repository.findByUsuario(user.get().getUsuario());
 		
@@ -36,6 +41,6 @@ public class UsuarioService {
 			}
 		}
 		return null;
-	}*/
+	}
 
 }
