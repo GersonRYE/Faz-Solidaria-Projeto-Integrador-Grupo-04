@@ -6,6 +6,7 @@ insert into categoria (tipo_alimento) values ('Grãos');
 /*Fim - Inserir valores tabela categoria*/
 
 /*Inicio - Inserir valores tabela endereco*/
+insert into endereco (cep, logradouro, complemento, bairro, localidade, uf, numero, pais) values ('03414-010', 'logradouro', 'complemento', 'Vila Mafra', 'Localidade','SP', '666', 'Brasil');
 /*Fim - Inserir valores tabela endereco*/
 
 /*Inicio - Inserir valores tabela itemPedido*/
@@ -22,6 +23,7 @@ insert into produto (nome, preco, estoque, imagem, categoria_id) values ('Abacat
 /*Fim - Inserir valores tabela produto*/
 
 /*Inicio - Inserir valores tabela usuario*/
+insert into usuario (cpf, nome, email, senha, data_nasc, telefone, foto, endereco_id) values('825.155.790-94', 'root', 'root@email.com', '123456789', '03/04/1995', '(11)99280-1817', 'link', 1);
 /*Fim - Inserir valores tabela usuario*/
 
 

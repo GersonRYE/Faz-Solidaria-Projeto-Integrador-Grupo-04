@@ -48,7 +48,7 @@ public class PedidoService {
 	private void armazenaItensPedido(Pedido pedido) {
 		pedido.getItens().forEach(item -> {
 			Produto produto = cadastroProduto.codigoProduto(item.getProduto().getId());
-			item.setPedido(pedido);
+		//	item.setPedido(pedido);
 			item.setProduto(produto);
 			//item.setPrecoUnitario(produto.getPreco());
 		});

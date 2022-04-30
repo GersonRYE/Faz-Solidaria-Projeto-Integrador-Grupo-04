@@ -4,8 +4,8 @@ create table usuario (
 	nome varchar(100) not null, 
 	email varchar(100) not null, 
 	senha varchar(15) not null, 
-	dataNasc varchar(10) not null,
-	telefone varchar(10) not null,
+	data_nasc varchar(10) not null,
+	telefone varchar(14) not null,
 	foto varchar(255) not null,
 	endereco_id bigint not null,
 	

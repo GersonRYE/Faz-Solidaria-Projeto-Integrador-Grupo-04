@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -15,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
+@Table(name = "categoria")
 public class Categoria {
 
 	@Id
@@ -26,7 +28,7 @@ public class Categoria {
 	@Size(min = 2, max = 50, message = "a descrição deve ser entre 2 a 50 caracteres")
 	private String tipoAlimento;
 
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)//Uma Categoria para Muitos Produtos
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produtos;
 
