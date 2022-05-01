@@ -11,14 +11,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/enderecos",
+					"raw": "http://localhost:8080/categorias/descricao?descricao=fr",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"enderecos"
+						"categorias",
+						"descricao"
+					],
+					"query": [
+						{
+							"key": "descricao",
+							"value": "fr"
+						}
 					]
 				}
 			},
@@ -31,7 +38,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"logradouro\": \"Alameda Sabia\",\n    \"bairro\":\"floresta\",\n    \"cidade\" : \"belo horizonte\",\n    \"cep\" : \"25577-220\",\n    \"pais\": \"Brasil\",\n    \"complemento\": \"bloco c\",\n    \"estado\": \"Minas Gerais\",\n    \"numero\": \"24B\"\n}",
+					"raw": "{\n    \"cep\": \"25577-220\",\n    \"logradouro\":\"floresta\",\n    \"complemento\" : \"Bloco C\",\n    \"bairro\" : \"floresta\",\n    \"localidade\": \"Minas Gerais\",\n    \"uf\": \"bloco c\",\n    \"numero\": \"164\",\n    \"pais\": \"Brasil\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

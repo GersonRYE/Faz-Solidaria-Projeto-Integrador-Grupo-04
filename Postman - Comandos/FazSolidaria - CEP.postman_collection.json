@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "1a28b25f-a6f7-48da-9f1e-23678f62cddc",
+		"name": "FazSolidaria - CEP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get CEP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getCep/02067000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getCep",
+						"02067000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
