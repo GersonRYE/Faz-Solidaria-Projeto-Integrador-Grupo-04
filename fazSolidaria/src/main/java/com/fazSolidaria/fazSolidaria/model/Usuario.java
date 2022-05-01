@@ -1,5 +1,7 @@
 package com.fazSolidaria.fazSolidaria.model;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,9 @@ import org.hibernate.validator.constraints.br.CPF;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Data
 @Entity
@@ -57,5 +62,23 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private Endereco endereco;
 
+	public boolean senhaValida(String senha) {
 
+		String regex = "^(?=.*[0-9])" + "(?=.[a-z])(?=.[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,15}$";
+
+		Pattern p = Pattern.compile(regex);
+
+		if (senha == null) {
+			return false;
+		}
+
+		Matcher m = p.matcher(senha);
+
+		if (m.matches() == true) {
+			this.senha = senha;
+		}
+
+		return m.matches();
+
+	}
 }

@@ -26,11 +26,11 @@ public class ItemPedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@JoinColumn(nullable = false, name = "pedido_id")
+	//@JoinColumn(nullable = false, name = "pedido_id")
 	@ManyToOne // Um item pedido para muitos pedidos
 	private Pedido pedido;
 
-	@JoinColumn(nullable = false, name = "produto_id")
+	//@JoinColumn(nullable = false, name = "produto_id")
 	@ManyToOne // Um item pedido para muitos produtos
 	private Produto produto;
 
