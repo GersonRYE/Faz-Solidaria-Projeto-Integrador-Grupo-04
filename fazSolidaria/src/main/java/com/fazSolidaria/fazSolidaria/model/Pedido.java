@@ -29,8 +29,6 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	// private BigDecimal subTotal;
-
 	private BigDecimal valorTotal;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -46,10 +44,9 @@ public class Pedido {
 
 	public void valorTotalPedido() {
 		for (int i = 0; i < getItens().size(); i++) {
-			BigDecimal valorTotalPedido = getItens().get(i).getPrecoTotal();
-			this.setValorTotal(valorTotalPedido.add(this.getValorTotal()));
+			BigDecimal valorTotalPedido = this.getItens().get(i).getPrecoTotal();
+			setValorTotal(valorTotalPedido.add(getValorTotal()));
 		}
-
 	}
 
 //	public void calcularValorTotal() {

@@ -38,7 +38,7 @@ public class ItemPedidoController {
 	
 	@PostMapping
 	public ResponseEntity<ItemPedido> CadastrarItemPedido(@Valid @RequestBody ItemPedido item){
-		System.out.println(item.getProduto().getId());
+		System.out.println(item.getPedido().getValorTotal()+" Classe ItemPedido");
 		return ResponseEntity.status(HttpStatus.CREATED).body(servico.cadastrarOuAtualizarItemPedido(item));
 	}
 }

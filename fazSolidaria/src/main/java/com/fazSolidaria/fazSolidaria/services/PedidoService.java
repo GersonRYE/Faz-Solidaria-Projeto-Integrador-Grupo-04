@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fazSolidaria.fazSolidaria.model.ItemPedido;
 import com.fazSolidaria.fazSolidaria.model.Pedido;
 import com.fazSolidaria.fazSolidaria.model.Produto;
 import com.fazSolidaria.fazSolidaria.model.Usuario;
@@ -28,8 +27,6 @@ public class PedidoService {
 	@Autowired
 	PedidoRepository pedidoServico;
 
-	@Autowired
-	ItemPedidoService itemPedidoService;
 
 	public List<Pedido> mostrarTodosPedidos() {
 		return pedidoRepository.findAll();
@@ -41,10 +38,11 @@ public class PedidoService {
 
 	@Transactional
 	public Pedido emissaoPedido(Pedido pedido) {
+		armazenaItensPedido(pedido);
 		armazenaUsuarioPedido(pedido);
 //		armazenaItensPedido(pedido);
 //		pedido.calcularValorTotal();
-		pedido.valorTotalPedido();
+//		pedido.valorTotalPedido();
 //		pedido.setValorTotal(itemPedido.getPrecoTotal().add(pedido.getValorTotal()));
 		return pedidoRepository.save(pedido);
 	}
@@ -54,15 +52,14 @@ public class PedidoService {
 		pedido.setCliente(usuario);
 	}
 
-//	private void armazenaItensPedido(Pedido pedido) {
-//		pedido.getItens().forEach(item -> {
-//			Produto produto = cadastroProduto.codigoProduto(item.getProduto().getId());
-//			// item.setPedido(pedido);
-//			item.setProduto(produto);
-//			// item.setPrecoUnitario(produto.getPreco());
-//			pedido.calcularValorTotal();
-//		});
-//	}
+	private void armazenaItensPedido(Pedido pedido) {
+		pedido.getItens().forEach(item -> {
+			Produto produto = cadastroProduto.codigoProduto(item.getProduto().getId());
+			// item.setPedido(pedido);
+			item.setProduto(produto);
+			// item.setPrecoUnitario(produto.getPreco());
+		});
+	}
 
 //	@Transactional
 //	public Pedido emitir(Pedido pedido) {

@@ -1,5 +1,6 @@
 package com.fazSolidaria.fazSolidaria.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -38,6 +39,7 @@ public class PedidoController {
 
 	@PostMapping
 	public ResponseEntity<Pedido> criarPedido(@Valid @RequestBody Pedido pedido) {
+		pedido.setValorTotal(BigDecimal.ZERO);
 		return ResponseEntity.status(HttpStatus.CREATED).body(pedidoService.emissaoPedido(pedido));
 	}
 }
