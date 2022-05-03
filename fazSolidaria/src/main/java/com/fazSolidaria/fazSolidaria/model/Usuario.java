@@ -1,7 +1,6 @@
 package com.fazSolidaria.fazSolidaria.model;
 
-
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -19,9 +19,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Data
 @Entity
@@ -33,19 +30,22 @@ public class Usuario {
 	private long id;
 
 	@CPF
+	@Column(unique = true)
 	private String cpf;
 
 	@NotBlank(message = "É obrigatório preencher o nome")
 	@Size(min = 3, max = 50, message = "O nome do cliente deve ter de 3 até 50 caracteres")
+	
 	private String nome;
 
 	@NotNull(message = "O atributo email é Obrigatório!")
 	@Email
 	@Size(min = 5, max = 100)
+	@Column(unique = true)
 	private String email;
 
 	@NotBlank(message = "É obrigatório informar senha")
-	@Size(min = 8, max = 15, message = "A senha deve conter de 3 até 50 caracteres")
+	@Pattern(regexp = "^(?=.*[0-9]) (?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}$", message = "A senha deve conter pelo menos um caracter minusculo, um caracter maiúsculo, um número e um caracter especial e deve conter o mínimo de 8 e máximo de 15 caracteres.")
 	private String senha;
 
 	@NotBlank(message = "É obrigatório informar data de nascimento")
@@ -62,23 +62,5 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private Endereco endereco;
 
-	public boolean senhaValida(String senha) {
 
-		String regex = "^(?=.*[0-9])" + "(?=.[a-z])(?=.[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,15}$";
-
-		Pattern p = Pattern.compile(regex);
-
-		if (senha == null) {
-			return false;
-		}
-
-		Matcher m = p.matcher(senha);
-
-		if (m.matches() == true) {
-			this.senha = senha;
-		}
-
-		return m.matches();
-
-	}
 }
