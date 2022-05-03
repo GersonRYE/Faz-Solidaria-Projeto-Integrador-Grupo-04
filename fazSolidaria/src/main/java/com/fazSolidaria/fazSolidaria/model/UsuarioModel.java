@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -23,7 +24,9 @@ public class UsuarioModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	//Testar Rafaela.
 	@CPF
+	@UniqueElements
 	private String cpf;
 
 	@NotBlank(message = "É obrigatório preencher o nome")
@@ -32,6 +35,7 @@ public class UsuarioModel {
 
 	@NotNull(message = "O atributo email é Obrigatório!")
 	@Email
+	@UniqueElements
 	@Size(min = 5, max = 100)
 	private String email;
 
@@ -43,6 +47,7 @@ public class UsuarioModel {
 	@Size(min = 10, max = 10)
 	private String dataNasc;
 
+	@UniqueElements
 	@NotBlank(message = "É obrigatório informar o telefone")
 	private String telefone;
 
