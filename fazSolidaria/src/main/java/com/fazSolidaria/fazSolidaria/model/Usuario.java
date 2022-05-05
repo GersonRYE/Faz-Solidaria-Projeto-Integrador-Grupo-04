@@ -35,6 +35,7 @@ public class Usuario {
 
 	@NotBlank(message = "É obrigatório preencher o nome")
 	@Size(min = 3, max = 50, message = "O nome do cliente deve ter de 3 até 50 caracteres")
+
 	private String nome;
 
 	@Column(unique = true)
@@ -44,8 +45,7 @@ public class Usuario {
 	private String email;
 
 	@NotBlank(message = "É obrigatório informar senha")
-	@Pattern(regexp = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])"
-			+ "(?=\\S+$).{8,15}$", message = "Padrão de senha deve ser obedecido.")
+	@Pattern(regexp = "^(?=.*[0-9]) (?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}$", message = "A senha deve conter pelo menos um caracter minusculo, um caracter maiúsculo, um número e um caracter especial e deve conter o mínimo de 8 e máximo de 15 caracteres.")
 	private String senha;
 
 	@NotBlank(message = "É obrigatório informar data de nascimento")
