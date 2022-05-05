@@ -11,21 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/categorias/descricao?descricao=fr",
+					"raw": "http://localhost:8080/enderecos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"categorias",
-						"descricao"
-					],
-					"query": [
-						{
-							"key": "descricao",
-							"value": "fr"
-						}
+						"enderecos"
 					]
 				}
 			},
@@ -38,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"cep\": \"25577-220\",\n    \"logradouro\":\"floresta\",\n    \"complemento\" : \"Bloco C\",\n    \"bairro\" : \"floresta\",\n    \"localidade\": \"Minas Gerais\",\n    \"uf\": \"bloco c\",\n    \"numero\": \"164\",\n    \"pais\": \"Brasil\"\n}",
+					"raw": "{\n    \"cep\": \"02067000\",\n    \"numero\": \"235\",\n    \"pais\": \"Brasil\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"logradouro\": \"Alameda Sabia\",\n    \"bairro\":\"floresta\",\n    \"cidade\" : \"belo horizonte\",\n    \"cep\" : \"25577-220\",\n    \"pais\": \"Brasil\",\n    \"complemento\": \"bloco c\",\n    \"estado\": \"Minas Gerais\",\n    \"numero\": \"24\"\n}",
+					"raw": "{\n    \"id\": 7,\n        \"cep\": \"02067-555\",\n        \"logradouro\": \"Rua Chico Delvaz\",\n        \"complemento\": \"até 519/520\",\n        \"bairro\": \"Santana\",\n        \"localidade\": \"São Paulo\",\n        \"uf\": \"SP\",\n        \"numero\": \"235\",\n        \"pais\": \"Brasil\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -93,7 +86,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/enderecos/1",
+					"raw": "http://localhost:8080/enderecos/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -101,7 +94,7 @@
 					"port": "8080",
 					"path": [
 						"enderecos",
-						"1"
+						"6"
 					]
 				}
 			},

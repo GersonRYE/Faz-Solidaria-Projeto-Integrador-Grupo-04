@@ -98,7 +98,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/categorias/1",
+					"raw": "http://localhost:8080/categorias/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -106,7 +106,7 @@
 					"port": "8080",
 					"path": [
 						"categorias",
-						"1"
+						"4"
 					]
 				}
 			},

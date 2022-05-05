@@ -38,7 +38,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"pedido\":{\r\n        \"id\":1\r\n    },\r\n    \"produto\":{\r\n        \"id\": 1\r\n    },\r\n    \"quantidade\":2\r\n}",
+					"raw": "{\r\n    \"pedido\":{\r\n        \"id\":1\r\n    },\r\n    \"produto\":{\r\n        \"id\": 2\r\n    },\r\n    \"quantidade\":2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

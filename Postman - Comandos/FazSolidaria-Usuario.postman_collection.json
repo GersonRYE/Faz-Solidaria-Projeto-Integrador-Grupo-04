@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"cpf\": \"610.410.010-45\",\r\n    \"nome\": \"Gerson\",\r\n    \"email\": \"gerson@gmail.com\",\r\n    \"senha\": \"12345678910\",\r\n    \"dataNasc\": \"01/01/1999\",\r\n    \"telefone\": \"(11)99999-9999\",\r\n    \"foto\": \"\",\r\n    \"endereco\":{\r\n        \"id\": 1\r\n    }\r\n    \r\n}",
+					"raw": "{\r\n    \"cpf\": \"597.873.900-52\",\r\n    \"nome\": \"Gerson\",\r\n    \"email\": \"fulano2@gmail.com\",\r\n    \"senha\": \"Grye125#\",\r\n    \"dataNasc\": \"01/01/1999\",\r\n    \"telefone\": \"(11)99999-9999\",\r\n    \"foto\": \"\",\r\n    \"endereco\":{\r\n        \"id\": 1\r\n    }\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

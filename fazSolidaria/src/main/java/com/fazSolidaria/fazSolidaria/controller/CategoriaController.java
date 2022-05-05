@@ -34,11 +34,6 @@ public class CategoriaController {
 		return ResponseEntity.ok(categoriaService.mostrarTodasCategorias());
 	}
 	
-//	@GetMapping(path = "/{id}")
-//	public ResponseEntity<CategoriaModel> GetById(@PathVariable long id) {
-//		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
-//	}
-	
 	@GetMapping(path = "/{id}")
 	public ResponseEntity<Categoria> BuscarPeloCodProduto (@PathVariable long id){
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.codigoCategoria(id));
