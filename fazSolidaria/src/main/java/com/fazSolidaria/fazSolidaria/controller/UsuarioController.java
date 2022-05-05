@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fazSolidaria.fazSolidaria.model.UsuarioModel;
 import com.fazSolidaria.fazSolidaria.repository.UsuarioRepository;
-
+//validar
 @RestController
 @RequestMapping("/usuarios")
 @CrossOrigin(origins = "*", allowedHeaders = "*")

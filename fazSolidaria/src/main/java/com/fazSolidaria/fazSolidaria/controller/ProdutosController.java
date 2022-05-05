@@ -55,9 +55,9 @@ public class ProdutosController {
 			return ResponseEntity.ok().body(repository.save(nomeProduto));
 		}).orElse(ResponseEntity.notFound().build());
 	}
-
+	// Método responsável por excluir um produto filtrando pelo ID
 	@DeleteMapping(path = "/{id}")
-	public ResponseEntity<?> delete(@Valid @PathVariable long id) {
+	public ResponseEntity<ProdutosModel> delete(@Valid @PathVariable long id) {
 		return repository.findById(id).map(resp -> {
 			repository.deleteById(id);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
