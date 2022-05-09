@@ -17,15 +17,15 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 @Data
 @Entity
 @Table(name = "produto")
 public class Produto {
 
-	@EqualsAndHashCode.Include
+//	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -38,7 +38,7 @@ public class Produto {
 	private BigDecimal preco;
 
 	@NotNull(message = "Informar o estoque é obrigatório")
-	private int estoque;
+	private Integer estoque;
 
 	@NotBlank(message = "É obrigatório ter imagem")
 	private String imagem;
@@ -47,12 +47,10 @@ public class Produto {
 	@ManyToOne // Muitos Produtos Para uma Categoria
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
-	
-//	@OneToMany// Um produto para Muitos itens pedidos
-//	private List<ItemPedido> pedido;
 
 	public void moedaDuasCasasDecimais() {
 		getPreco().setScale(2, RoundingMode.HALF_UP);
 	}
+	
 
 }
