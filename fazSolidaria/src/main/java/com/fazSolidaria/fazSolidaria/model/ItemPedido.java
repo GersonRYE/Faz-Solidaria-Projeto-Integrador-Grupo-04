@@ -10,24 +10,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "itemPedido")
 public class ItemPedido {
 
-	@EqualsAndHashCode.Include
+//	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	//@JoinColumn(nullable = false, name = "pedido_id")
+	// @JoinColumn(nullable = false, name = "pedido_id")
 	@ManyToOne // Um item pedido para muitos pedidos
 	private Pedido pedido;
 
-	//@JoinColumn(nullable = false, name = "produto_id")
+	// @JoinColumn(nullable = false, name = "produto_id")
 	@ManyToOne // Um item pedido para muitos produtos
 	private Produto produto;
 
@@ -55,12 +54,9 @@ public class ItemPedido {
 
 	public void valorTotalPedido() {
 		this.pedido.setValorTotal(getPrecoTotal());
-		}
-	
-//	public void valorTotalPedido() {
-//	for (int i = 1; i < getItens().size(); i++) {
-//		BigDecimal valorTotalPedido = this.getItens().get(i).getPrecoTotal();
-//		this.setValorTotal(valorTotalPedido.add(getValorTotal()));
-//	}
-//}
+	}
+
+	public void estoqueProduto() {
+		this.produto.setEstoque(produto.getEstoque() - getQuantidade());
+	}
 }

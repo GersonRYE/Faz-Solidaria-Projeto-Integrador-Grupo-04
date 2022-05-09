@@ -27,7 +27,6 @@ public class PedidoService {
 	@Autowired
 	PedidoRepository pedidoServico;
 
-
 	public List<Pedido> mostrarTodosPedidos() {
 		return pedidoRepository.findAll();
 	}
@@ -40,10 +39,6 @@ public class PedidoService {
 	public Pedido emissaoPedido(Pedido pedido) {
 		armazenaItensPedido(pedido);
 		armazenaUsuarioPedido(pedido);
-//		armazenaItensPedido(pedido);
-//		pedido.calcularValorTotal();
-//		pedido.valorTotalPedido();
-//		pedido.setValorTotal(itemPedido.getPrecoTotal().add(pedido.getValorTotal()));
 		return pedidoRepository.save(pedido);
 	}
 
@@ -55,29 +50,7 @@ public class PedidoService {
 	private void armazenaItensPedido(Pedido pedido) {
 		pedido.getItens().forEach(item -> {
 			Produto produto = cadastroProduto.codigoProduto(item.getProduto().getId());
-			// item.setPedido(pedido);
 			item.setProduto(produto);
-			// item.setPrecoUnitario(produto.getPreco());
 		});
 	}
-
-//	@Transactional
-//	public Pedido emitir(Pedido pedido) {
-//		validarPedido(pedido);
-//		validarItens(pedido);
-//
-//		pedido.setTaxaFrete(pedido.getRestaurante().getTaxaFrete());
-//		pedido.calcularValorTotal();
-//
-//		return pedidoRepository.save(pedido);
-//	}
-
-//	private void validarItens(Pedido pedido) {
-//	    pedido.getItens().forEach(item -> {
-//	        Produto produto = cadastroProduto.buscarOuFalhar(
-//	                pedido.getRestaurante().getId(), item.getProduto().getId());
-//	        item.setPedido(pedido);
-//	        item.setProduto(produto);
-//	        item.setPrecoUnitario(produto.getPreco());
-//	    });
 }

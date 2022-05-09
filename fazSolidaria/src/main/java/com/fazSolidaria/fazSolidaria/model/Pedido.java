@@ -48,21 +48,4 @@ public class Pedido {
 			setValorTotal(valorTotalPedido.add(getValorTotal()));
 		}
 	}
-
-//	public void calcularValorTotal() {
-////		setValorTotal(getItens().forEach(ItemPedido::getPrecoTotal));
-//		for(int i = 0 ; i < this.itens.size(); i++) {
-//			BigDecimal precoTotal = this.getItens().get(i).getPrecoTotal();
-//			setValorTotal(precoTotal.add(this.getValorTotal()));
-//		}
-
-//		setValorTotal(getItens().forEach(ItemPedido::calcularPrecoTotal));
-
-//		setSubTotal(getItens().stream().map(item -> item.getPrecoTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
-//		this.subTotal = getItens().stream().map(item -> item.getPrecoTotal()).reduce(BigDecimal.ZERO, BigDecimal::add);
-//		setValorTotal(getItens().stream().map(item -> item.getPrecoTotal()).reduce(BigDecimal.ZERO, BigDecimal::add));
-//		this.valorTotal = this.subTotal;
-	// setValorTotal(valorTotal);
-//	}
-
 }
