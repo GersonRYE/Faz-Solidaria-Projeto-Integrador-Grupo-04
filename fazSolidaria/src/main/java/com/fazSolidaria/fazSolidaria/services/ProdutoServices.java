@@ -2,6 +2,8 @@ package com.fazSolidaria.fazSolidaria.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,9 @@ public class ProdutoServices {
 
 	@Autowired
 	ProdutoRepository produtoRepository;
+	
+//	@Autowired
+//	PedidoService pedidoService;
 
 	public List<Produto> mostrarProdutosCadastrados() {
 		return produtoRepository.findAll();
@@ -23,6 +28,7 @@ public class ProdutoServices {
 		return produtoRepository.findAllByNomeIgnoreCase(nome);
 	}
 
+	@Transactional
 	public Produto cadastrarProduto(Produto produto) {
 		return produtoRepository.save(produto);
 	}
