@@ -31,8 +31,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Bean 
 	public PasswordEncoder passwordEncoder() {
-		
-		//retornar um nova senha criptografada
+
 		return new BCryptPasswordEncoder();
 	}
 	
