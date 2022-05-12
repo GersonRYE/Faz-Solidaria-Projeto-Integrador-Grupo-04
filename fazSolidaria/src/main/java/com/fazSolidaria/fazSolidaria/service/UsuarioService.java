@@ -43,4 +43,10 @@ public class UsuarioService {
 		return null;
 	}
 
+	public Optional<UsuarioModel> CadastrarUsuario(long id, String cpf, String nome, String usuario,
+			String senha, String dataNasc, String telefone, String foto) {
+		
+		return null;
+	}
+
 }

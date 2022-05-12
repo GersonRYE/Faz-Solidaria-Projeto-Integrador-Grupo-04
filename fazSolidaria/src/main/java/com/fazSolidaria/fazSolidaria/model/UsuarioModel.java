@@ -15,6 +15,8 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Entity
 @Table(name = "tb_cliente")
 public class UsuarioModel {
@@ -30,10 +32,10 @@ public class UsuarioModel {
 	@Size(min = 3, max = 50, message = "O nome do cliente deve ter de 3 até 50 caracteres")
 	private String nome;
 
-	@NotNull(message = "O atributo email é Obrigatório!")
-	@Email
-	@Size(min = 5, max = 100)
-	private String email;
+	@Schema(example = "email@email.com")
+	@NotNull(message = "O atributo usurio é obrigatório")
+	@Email(message = "O atributo usurio deve ser um e-mail válido")
+	private String usuario;
 
 	@NotBlank(message = "É obrigatório informar senha")
 	@Size(min = 8, max = 15, message = "A senha deve conter de 3 até 50 caracteres")
@@ -47,10 +49,24 @@ public class UsuarioModel {
 	private String telefone;
 
 	private String foto;
-
+	
 	@ManyToOne
 	@JsonIgnoreProperties("usuarios")
 	private EnderecoModel endereco;
+	
+
+	public UsuarioModel(long id, String cpf, String nome, String usuario, String senha, String dataNasc, String telefone, String foto) {
+		this.id = id;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.dataNasc = dataNasc;
+		this.telefone = telefone;
+		this.foto = foto;
+	}
+
+
 
 	public long getId() {
 		return id;
@@ -76,12 +92,12 @@ public class UsuarioModel {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsusario(String email) {
+		this.usuario = email;
 	}
 
 	public String getSenha() {
