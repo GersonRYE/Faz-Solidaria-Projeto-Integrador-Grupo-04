@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "50b65945-81f2-4fa9-93c6-1127ff9f0f98",
+		"name": "FazSolidaria-Usuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"610.410.010-45\",\r\n    \"nome\": \"Gerson Ronaldo\",\r\n    \"email\": \"gerson@gmail.com\",\r\n    \"senha\": \"0123456789\",\r\n    \"dataNasc\": \"01/01/1999\",\r\n    \"telefone\": \"(11)99999-9999\",\r\n    \"foto\": \"\",\r\n    \"endereco\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"cpf\": \"274.176.830-70\",\r\n    \"nome\": \"Gerson Ronaldo\",\r\n    \"email\": \"gerson@gmail.com\",\r\n    \"senha\": \"0123456789\",\r\n    \"dataNasc\": \"01/01/1999\",\r\n    \"telefone\": \"(11)99999-9999\",\r\n    \"foto\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Nomes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/nome?nome=ger",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"nome"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "ger"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
