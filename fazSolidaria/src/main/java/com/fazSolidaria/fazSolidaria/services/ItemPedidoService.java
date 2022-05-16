@@ -50,7 +50,7 @@ public class ItemPedidoService {
 		itemPedido.setPedido(pedido);
 		//Armazenando o valor total na entity pedido
 		itemPedido.valorTotalPedido();
-		itemPedido.estoqueProduto();
+//		itemPedido.estoqueProduto();
 		//Somatoria do valor total e armazena no atributo valorTotal da entity pedido
 		pedido.valorTotalPedido();
 		System.out.println(pedido.getValorTotal() + " Teste valor na tabela Pedido");

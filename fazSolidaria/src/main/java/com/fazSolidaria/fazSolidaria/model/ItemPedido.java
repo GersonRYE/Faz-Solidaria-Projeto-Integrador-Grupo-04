@@ -53,10 +53,14 @@ public class ItemPedido {
 	}
 
 	public void valorTotalPedido() {
-		this.pedido.setValorTotal(getPrecoTotal());
+		this.pedido.setSubtotal(getPrecoTotal());
 	}
 
 	public void estoqueProduto() {
 		this.produto.setEstoque(produto.getEstoque() - getQuantidade());
+	}
+	
+	public void retornaEstoque() {
+		this.produto.setEstoque(produto.getEstoque() + getQuantidade());
 	}
 }

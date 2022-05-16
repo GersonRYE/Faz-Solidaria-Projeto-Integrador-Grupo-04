@@ -20,7 +20,7 @@ import com.fazSolidaria.fazSolidaria.model.Pedido;
 import com.fazSolidaria.fazSolidaria.services.PedidoService;
 
 @RestController
-@RequestMapping("/pedido")
+@RequestMapping("/pedidos")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PedidoController {
 
@@ -40,6 +40,7 @@ public class PedidoController {
 	@PostMapping
 	public ResponseEntity<Pedido> criarPedido(@Valid @RequestBody Pedido pedido) {
 		pedido.setValorTotal(BigDecimal.ZERO);
+		pedido.setSubtotal(BigDecimal.ZERO);
 		return ResponseEntity.status(HttpStatus.CREATED).body(pedidoService.emissaoPedido(pedido));
 	}
 }
