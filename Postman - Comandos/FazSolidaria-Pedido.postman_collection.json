@@ -23,14 +23,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/pedido",
+					"raw": "http://localhost:8080/pedidos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"pedido"
+						"pedidos"
 					]
 				}
 			},
@@ -63,7 +63,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"cliente\":{\r\n        \"id\": 1\r\n    }\r\n\r\n}",
+					"raw": "{\r\n    \"frete\":1,\r\n    \"cliente\":{\r\n        \"id\": 1\r\n    }\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -71,14 +71,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/pedido",
+					"raw": "http://localhost:8080/pedidos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"pedido"
+						"pedidos"
 					]
 				}
 			},
