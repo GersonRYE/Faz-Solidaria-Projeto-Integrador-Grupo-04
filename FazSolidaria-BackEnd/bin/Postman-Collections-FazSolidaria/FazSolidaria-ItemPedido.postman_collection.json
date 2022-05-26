@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "242806d3-3c78-4833-981b-79c3779a4dbf",
+		"name": "FazSolidaria-ItemPedido",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buscar Itens Pedido",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZnVsYW5vc2Rzc3NzQGVtYWlsLmNvbTpHcnllMTI4Iw==",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/itens-pedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Id Itens Pedido",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZnVsYW5vc2Rzc3NzQGVtYWlsLmNvbTpHcnllMTI4Iw==",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/itens-pedido/buscar-id-item-pedido/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-pedido",
+						"buscar-id-item-pedido",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Item Pedido",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZnVsYW5vc2Rzc3NzQGVtYWlsLmNvbTpHcnllMTI4Iw==",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pedido\":{\r\n        \"id\":1\r\n    },\r\n    \"produto\":{\r\n        \"id\": 1\r\n    },\r\n    \"quantidade\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/itens-pedido/cadastrar-item-pedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-pedido",
+						"cadastrar-item-pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Item Pedido",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZnVsYW5vc2Rzc3NzQGVtYWlsLmNvbTpHcnllMTI4Iw==",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"pedido\":{\r\n        \"id\":1\r\n    },\r\n    \"produto\":{\r\n        \"id\": 1\r\n    },\r\n    \"quantidade\":1\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/itens-pedido/atualizar-item-pedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-pedido",
+						"atualizar-item-pedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Item Pedido",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZnVsYW5vc2Rzc3NzQGVtYWlsLmNvbTpHcnllMTI4Iw==",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/itens-pedido/deletar-id-item-pedido/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-pedido",
+						"deletar-id-item-pedido",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
