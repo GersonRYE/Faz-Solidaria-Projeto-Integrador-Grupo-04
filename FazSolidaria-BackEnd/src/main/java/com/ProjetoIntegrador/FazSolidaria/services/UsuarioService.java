@@ -34,7 +34,7 @@ public class UsuarioService {
 
 	public Usuario codigoUsuario(Long idProduto) {
 		return usuarioRepository.findById(idProduto).orElseThrow(() -> new UsuarioNaoEncontradoException(idProduto));
-	}
+	} 
 
 	public Usuario buscarNome(String nome) {
 		return usuarioRepository.findAllByNomeIgnoreCase(nome).orElseThrow(() -> new UsuarioNaoEncontradoException(

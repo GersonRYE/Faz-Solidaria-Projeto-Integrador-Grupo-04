@@ -1,13 +1,14 @@
 package com.ProjetoIntegrador.FazSolidaria.model;
 
-import java.util.List;
+//import java.util.List;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+//import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -34,7 +35,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-//	@Column(unique = true)
+	@Column(unique = true)
 	@CPF(message = "CPF inválido")
 	private String cpf;
 
@@ -43,7 +44,7 @@ public class Usuario {
 	private String nome;
 
 	
-//	@Column(unique = true)
+	@Column(unique = true)
 	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O email é Obrigatório!")
 	@Email(message = "Email com formato invalido")
@@ -65,9 +66,21 @@ public class Usuario {
 	
 	private String tipo;
 
+	/*
 //	@JoinColumn(name = "endereco_id", nullable = false)
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Endereco> endereco;
-
+	*/
+	
+	
+	//Construtor
+	public Usuario(long id, String cpf, String nome, String usuario, String senha, String foto) {
+		this.id = id;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
 }
