@@ -1,14 +1,14 @@
 package com.ProjetoIntegrador.FazSolidaria.model;
 
-//import java.util.List;
+import java.util.List;
 
-//import javax.persistence.CascadeType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.OneToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -20,14 +20,12 @@ import org.hibernate.validator.constraints.br.CPF;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Table(name = "usuario")
 public class Usuario {
 
@@ -66,21 +64,26 @@ public class Usuario {
 	
 	private String tipo;
 
-	/*
+	
 //	@JoinColumn(name = "endereco_id", nullable = false)
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Endereco> endereco;
-	*/
 	
-	
-	//Construtor
-	public Usuario(long id, String cpf, String nome, String usuario, String senha, String foto) {
+
+
+	public Usuario(long id, String cpf, String nome, String usuario, String senha, String dataNasc, String telefone) {
 		this.id = id;
 		this.cpf = cpf;
 		this.nome = nome;
 		this.usuario = usuario;
 		this.senha = senha;
-		this.foto = foto;
+		this.dataNasc = dataNasc;
+		this.telefone = telefone;
 	}
+	
+	public Usuario() {
+		
+	}
+	
 }

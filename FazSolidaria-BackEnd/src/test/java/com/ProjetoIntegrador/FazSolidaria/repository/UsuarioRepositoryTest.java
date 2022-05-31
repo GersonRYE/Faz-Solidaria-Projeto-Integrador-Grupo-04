@@ -29,10 +29,10 @@ public class UsuarioRepositoryTest {
 	@BeforeAll
 	void start(){
 		usuarioRepository.deleteAll();
-		usuarioRepository.save(new Usuario (0L,"753.909.450-85", "Felipe Silva", "felipe_silva@gmail.com","Test@2020", "25/06/1974", "11062722616", "http://fotoFelipeSilva.jpg", "administrativo"));
-		usuarioRepository.save(new Usuario (0L,"778.787.700-69","Thiago Oliveira", "thiago_Oliveira@gmail.com","Test@2019","30/01/1999", "12980807070","http://fotoThiagoOliveira.jpg", "administrativo"));
-		usuarioRepository.save(new Usuario (0L,"567.305.230-85", "Luis Fernandes", "luis_fernandes@gmail.com","Test@2017","07/08/2000", "85960607070", "http://fotoLuisFernandes.jpg", "administrativo"));
-		usuarioRepository.save(new Usuario (0L,"455.939.820-82","Victor Pereira", "victor_pereira@gmail.com","Test@2015","02/12/1967", "31950706050", "http://fotoVictorPereira.jpg", "administrativo"));
+		usuarioRepository.save(new Usuario (0L,"753.909.450-85", "Felipe Silva", "felipe_silva@gmail.com","Test@2020", "25/06/1974", "11062722616"));
+		usuarioRepository.save(new Usuario (0L,"778.787.700-69","Thiago Oliveira", "thiago_Oliveira@gmail.com","Test@2019","30/01/1999", "12980807070"));
+		usuarioRepository.save(new Usuario (0L,"567.305.230-85", "Luis Fernandes", "luis_fernandes@gmail.com","Test@2017","07/08/2000", "85960607070"));
+		usuarioRepository.save(new Usuario (0L,"455.939.820-82","Victor Pereira", "victor_pereira@gmail.com","Test@2015","02/12/1967", "31950706050"));
 	}
 	
 	@Test

@@ -50,7 +50,7 @@ public class UsuarioControllerTest {
 	@DisplayName("Cadastrar um Usuário")
 	public void deveCriarUmUsuario()
 	{
-		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L, "925.934.790-43","Caio Abreu", "caio.abreu@gmail.com","Teste@1234","20/05/1985", "21940446050", "http://fotoCaioAbreu.jpg", "administrativo"));
+		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L, "925.934.790-43","Caio Abreu", "caio.abreu@gmail.com","Teste@1234","20/05/1985", "21940446050"));
 		ResponseEntity<Usuario> resposta = testRestTemplate
 				.exchange("/usuarios/cadastrar-usuario",HttpMethod.POST,requisicao,Usuario.class);
 		
@@ -66,9 +66,9 @@ public class UsuarioControllerTest {
 	public void naoDeveDuplicarUsuario()
 	{
 		usuarioService.cadastrarUsuario(new Usuario(0L,
-				"304.981.360-19","Karla Sousa", "karla_sousa@gmail.com","Teste@12345","02/12/1989", "13950906050", "http://fotoKarlaSousa.jpg", "administrativo"));
+				"304.981.360-19","Karla Sousa", "karla_sousa@gmail.com","Teste@12345","02/12/1989", "13950906050"));
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L,
-				"304.981.360-19","Karla Sousa", "karla_sousa@gmail.com","Teste@12345","02/12/1989", "13950906050", "http://fotoKarlaSousa.jpg", "administrativo"));
+				"304.981.360-19","Karla Sousa", "karla_sousa@gmail.com","Teste@12345","02/12/1989", "13950906050"));
 		ResponseEntity<Usuario> resposta = testRestTemplate
 				.exchange("/usuarios/cadastrar-usuario",HttpMethod.POST,requisicao,Usuario.class);
 		assertEquals(HttpStatus.BAD_REQUEST, resposta.getStatusCode());
@@ -80,9 +80,9 @@ public class UsuarioControllerTest {
 	public void deveAlterarUmUsuario()
 	{
 		Optional<Usuario> usuarioCreate = usuarioService.cadastrarUsuario(new Usuario(0L,
-				"287.673.750-73","Camila", "camila_assuncao@gmail.com","Teste@6789","02/09/1995", "17955506050", "http://fotoCamilaAssunção.jpg", "administrativo"));
+				"287.673.750-73","Camila", "camila_assuncao@gmail.com","Teste@6789","02/09/1995", "17955506050"));
 		Usuario usuarioUpdate = new Usuario(usuarioCreate.get().getId(),
-				"287.673.750-73","Camila Assunção", "camila_assuncao@gmail.com","Teste@6789","02/09/1995", "17955506050", "http://fotoCamilaAssunção.jpg", "administrativo");
+				"287.673.750-73","Camila Assunção", "camila_assuncao@gmail.com","Teste@6789","02/09/1995", "17955506050");
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(usuarioUpdate);
 		ResponseEntity<Usuario> resposta = testRestTemplate
 				.withBasicAuth("root", "root")
