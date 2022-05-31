@@ -1,0 +1,26 @@
+{
+  "name": "joyce",
+  "version": "1.0.0",
+  "description": "api pagamento faz solidaria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "gateway",
+    "pagamentos",
+    "api"
+  ],
+  "author": "Joyce Meireles",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "knex": "^2.1.0",
+    "nodemon": "^2.0.16",
+    "sqlite3": "^5.0.8",
+    "uuid": "^8.3.2"
+  }
+}

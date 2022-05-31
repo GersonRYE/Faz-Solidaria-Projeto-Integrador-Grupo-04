@@ -1,0 +1,1 @@
+29/05/2022 23:17:17 - Error during create payment process: Error: insert into `pagamentos` (`card`, `id`, `user`, `value`) values (5103871250833331, 'c4ddaa79-11c7-4adc-9aef-9946cca8501e', 1234, NULL) - SQLITE_CONSTRAINT: NOT NULL constraint failed: pagamentos.value
