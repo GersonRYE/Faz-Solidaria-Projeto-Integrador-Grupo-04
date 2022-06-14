@@ -30,7 +30,7 @@ public class ItemPedidoService {
 	@Autowired
 	ProdutoRepository produto;
 
-	public List<ItemPedido> mostrarTodosItensPedido() {
+	public List<ItemPedido> mostrarItensPedidoCadastrados() {
 		return itemPedidoRepository.findAll();
 	}
 

@@ -30,12 +30,12 @@ public class EnderecoController {
 	private EnderecoService enderecoService;
 
 	@GetMapping
-	public ResponseEntity<List<Endereco>> mostrarTodosEnderecos() {
-		return ResponseEntity.ok(enderecoService.mostrarTodosEnderecos());
+	public ResponseEntity<List<Endereco>> mostrarEnderecosCadastrados() {
+		return ResponseEntity.ok(enderecoService.mostrarEnderecosCadastrados());
 	}
 
 	@GetMapping("/buscar-id-endereco/{idEndereco}")
-	public ResponseEntity<Endereco> buscarCodigoEndereco(@Valid @PathVariable long idEndereco) {
+	public ResponseEntity<Endereco> buscarIdEnderecoOuFalhe(@Valid @PathVariable long idEndereco) {
 		return ResponseEntity.ok(enderecoService.buscarIdEnderecoOuFalhe(idEndereco));
 	}
 

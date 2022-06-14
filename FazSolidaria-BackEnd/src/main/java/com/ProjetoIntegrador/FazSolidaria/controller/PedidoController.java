@@ -28,8 +28,8 @@ public class PedidoController {
 	PedidoService pedidoService;
 
 	@GetMapping
-	public ResponseEntity<List<Pedido>> mostrarPedidos() {
-		return ResponseEntity.ok(pedidoService.mostrarTodosPedidos());
+	public ResponseEntity<List<Pedido>> mostrarPedidosCadastrados() {
+		return ResponseEntity.ok(pedidoService.mostrarPedidosCadastrados());
 	}
 
 	@GetMapping("/buscar-id-pedido/{idPedido}")

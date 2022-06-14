@@ -16,8 +16,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.ProjetoIntegrador.FazSolidaria.exception.NegocioException;
 import com.ProjetoIntegrador.FazSolidaria.exception.UsuarioNaoEncontradoException;
-import com.ProjetoIntegrador.FazSolidaria.input.UsuarioLoginInput;
 import com.ProjetoIntegrador.FazSolidaria.model.Usuario;
+import com.ProjetoIntegrador.FazSolidaria.model.UsuarioLoginInput;
 import com.ProjetoIntegrador.FazSolidaria.repository.UsuarioRepository;
 
 @Service
@@ -32,7 +32,7 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 
-	public Usuario codigoUsuario(Long idProduto) {
+	public Usuario buscarIdUsuarioOuFalhe(Long idProduto) {
 		return usuarioRepository.findById(idProduto).orElseThrow(() -> new UsuarioNaoEncontradoException(idProduto));
 	} 
 

@@ -29,12 +29,12 @@ public class ItemPedidoController {
 	ItemPedidoService itemPedidoService;
 
 	@GetMapping
-	public ResponseEntity<List<ItemPedido>> mostrarTodoItensPedidos() {
-		return ResponseEntity.ok().body(itemPedidoService.mostrarTodosItensPedido());
+	public ResponseEntity<List<ItemPedido>> mostrarItensPedidoCadastrados() {
+		return ResponseEntity.ok().body(itemPedidoService.mostrarItensPedidoCadastrados());
 	}
 
 	@GetMapping("/buscar-id-item-pedido/{idItemPedido}")
-	public ResponseEntity<ItemPedido> buscarIdItemPedido(@Valid @PathVariable Long idItemPedido) {
+	public ResponseEntity<ItemPedido> buscarIdItemPedidoOuFalhe(@Valid @PathVariable Long idItemPedido) {
 		return ResponseEntity.ok().body(itemPedidoService.buscarIdItemPedidoOuFalhe(idItemPedido));
 	}
 
@@ -44,7 +44,7 @@ public class ItemPedidoController {
 	}
 
 	@PutMapping("/atualizar-item-pedido")
-	public ResponseEntity<ItemPedido> atualizarItemPedido(@Valid @RequestBody ItemPedido itemPedido) {
+	public ResponseEntity<ItemPedido> atualizarCadastroItemPedido(@Valid @RequestBody ItemPedido itemPedido) {
 		return ResponseEntity.status(HttpStatus.OK).body(itemPedidoService.atualizarCadastroItemPedido(itemPedido));
 	}
 

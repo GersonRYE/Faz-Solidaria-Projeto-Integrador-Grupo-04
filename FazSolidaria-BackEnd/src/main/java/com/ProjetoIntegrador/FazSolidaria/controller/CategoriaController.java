@@ -35,7 +35,7 @@ public class CategoriaController {
 	}
 
 	@GetMapping("/buscar-id-categoria/{idCategoria}")
-	public ResponseEntity<Categoria> buscarPeloIdCategoriaOuFalhe(@Valid @PathVariable long idCategoria) {
+	public ResponseEntity<Categoria> buscarIdCategoriaOuFalhe(@Valid @PathVariable long idCategoria) {
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscarIdCategoriaOuFalhe(idCategoria));
 	}
 

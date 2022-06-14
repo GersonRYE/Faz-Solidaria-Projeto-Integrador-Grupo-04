@@ -27,7 +27,7 @@ public class PedidoService {
 	@Autowired
 	PedidoRepository pedidoServico;
 
-	public List<Pedido> mostrarTodosPedidos() {
+	public List<Pedido> mostrarPedidosCadastrados() {
 		return pedidoRepository.findAll();
 	}
 
@@ -43,7 +43,7 @@ public class PedidoService {
 	}
 
 	private void armazenaUsuarioPedido(Pedido pedido) {
-		Usuario usuario = cadastroUsuario.codigoUsuario(pedido.getCliente().getId());
+		Usuario usuario = cadastroUsuario.buscarIdUsuarioOuFalhe(pedido.getCliente().getId());
 		pedido.setCliente(usuario);
 	}
 

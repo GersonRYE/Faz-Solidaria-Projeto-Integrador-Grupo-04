@@ -1,4 +1,4 @@
-package com.ProjetoIntegrador.FazSolidaria.input;
+package com.ProjetoIntegrador.FazSolidaria.model;
 
 import lombok.Data;
 

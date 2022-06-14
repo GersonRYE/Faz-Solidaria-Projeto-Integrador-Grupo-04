@@ -22,7 +22,7 @@ public class EnderecoService {
 	@Autowired
 	EnderecoRepository enderecoRepository;
 
-	public List<Endereco> mostrarTodosEnderecos() {
+	public List<Endereco> mostrarEnderecosCadastrados() {
 		return enderecoRepository.findAll();
 	}
 

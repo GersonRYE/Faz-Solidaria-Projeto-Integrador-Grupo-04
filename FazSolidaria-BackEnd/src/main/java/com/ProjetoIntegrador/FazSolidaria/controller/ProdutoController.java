@@ -35,7 +35,7 @@ public class ProdutoController {
 	}
 
 	@GetMapping("/buscar-id-produto/{idProduto}")
-	public ResponseEntity<Produto> buscarPeloIdProduto(@Valid @PathVariable long idProduto) {
+	public ResponseEntity<Produto> buscarIdProdutoOuFalhe(@Valid @PathVariable long idProduto) {
 		return ResponseEntity.ok(produtoService.buscarIdProdutoOuFalhe(idProduto));
 	}
 
@@ -50,7 +50,7 @@ public class ProdutoController {
 	}
 
 	@PutMapping("/atualizar-produto")
-	public ResponseEntity<Produto> alterarInformação(@Valid @RequestBody Produto produto) {
+	public ResponseEntity<Produto> atualizarCadastroProduto(@Valid @RequestBody Produto produto) {
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(produtoService.atualizarCadastroProduto(produto));
 	}
 

@@ -39,6 +39,9 @@ public class Produto {
 
 	@NotBlank(message = "É obrigatório ter imagem")
 	private String imagem;
+	
+	@NotNull
+	private String descricao;
 
 	@JoinColumn(name = "categoria_id", nullable = false)
 	@ManyToOne

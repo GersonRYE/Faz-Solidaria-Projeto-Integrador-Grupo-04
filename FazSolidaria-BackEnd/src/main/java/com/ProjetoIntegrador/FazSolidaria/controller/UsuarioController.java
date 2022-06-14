@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ProjetoIntegrador.FazSolidaria.input.UsuarioLoginInput;
 import com.ProjetoIntegrador.FazSolidaria.model.Usuario;
+import com.ProjetoIntegrador.FazSolidaria.model.UsuarioLoginInput;
 import com.ProjetoIntegrador.FazSolidaria.services.UsuarioService;
 
 @RestController
@@ -36,8 +36,8 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/buscar-id-usuario/{id}")
-	public ResponseEntity<Usuario> buscarUsuarioPeloId(@PathVariable long id) {
-		Usuario buscaUsuario = usuarioService.codigoUsuario(id);
+	public ResponseEntity<Usuario> buscarIdUsuarioOuFalhe(@PathVariable long id) {
+		Usuario buscaUsuario = usuarioService.buscarIdUsuarioOuFalhe(id);
 		return ResponseEntity.ok(buscaUsuario);
 	}
 
@@ -59,7 +59,7 @@ public class UsuarioController {
 
 	@PutMapping("/atualizar-usuario")
 	public ResponseEntity<Optional<Usuario>> alterarCadastroUsuario(@Valid @RequestBody Usuario usuario) {
-		Usuario alteraCadastroUsuario = usuarioService.codigoUsuario(usuario.getId());
+		Usuario alteraCadastroUsuario = usuarioService.buscarIdUsuarioOuFalhe(usuario.getId());
 		usuarioService.copiaInfoNovas(usuario, alteraCadastroUsuario);
 		return ResponseEntity.ok().body(usuarioService.atualizarCadastroUsuario(usuario));
 	}
