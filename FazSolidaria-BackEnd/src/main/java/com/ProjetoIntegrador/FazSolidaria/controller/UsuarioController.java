@@ -35,10 +35,9 @@ public class UsuarioController {
 		return ResponseEntity.ok(usuarioService.mostrarTodosUsuarios());
 	}
 
-	@GetMapping("/buscar-id-usuario/{id}")
-	public ResponseEntity<Usuario> buscarIdUsuarioOuFalhe(@PathVariable long id) {
-		Usuario buscaUsuario = usuarioService.buscarIdUsuarioOuFalhe(id);
-		return ResponseEntity.ok(buscaUsuario);
+	@GetMapping("/{id}")
+	public ResponseEntity<Usuario> buscarIdUsuarioOuFalhe(@Valid @PathVariable long id) {
+		return ResponseEntity.status(HttpStatus.OK).body(usuarioService.buscarIdUsuarioOuFalhe(id));
 	}
 
 	@GetMapping("/nome-usuario")

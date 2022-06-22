@@ -33,7 +33,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(unique = true)
+//	@Column(unique = true)
 	@CPF(message = "CPF inválido")
 	private String cpf;
 
@@ -42,14 +42,14 @@ public class Usuario {
 	private String nome;
 
 	
-	@Column(unique = true)
+//	@Column(unique = true)
 	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O email é Obrigatório!")
 	@Email(message = "Email com formato invalido")
 	@Size(min = 5, max = 100)
 	private String usuario;
 
-	@NotNull
+	@NotBlank(message = "A senha é obrigatório")
 //	@Pattern(regexp = "^(?=.*[0-9]) (?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}$", message = "A senha deve conter pelo menos um caracter minusculo, um caracter maiúsculo, um número e um caracter especial e deve conter o mínimo de 8 e máximo de 15 caracteres.")
 	private String senha;
 
@@ -57,7 +57,6 @@ public class Usuario {
 	@Size(min = 10, max = 10)
 	private String dataNasc;
 
-	@NotBlank(message = "É obrigatório informar o telefone")
 	private String telefone;
 
 	private String foto;
