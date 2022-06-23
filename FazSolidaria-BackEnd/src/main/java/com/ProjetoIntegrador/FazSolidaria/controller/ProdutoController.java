@@ -39,8 +39,8 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtoService.buscarIdProdutoOuFalhe(idProduto));
 	}
 
-	@GetMapping("/buscar-nome-produto")
-	public ResponseEntity<Produto> mostrarProdutoPeloNome(@Valid @RequestParam String nomeProduto) {
+	@GetMapping("/buscar-nome-produto/{nomeProduto}")
+	public ResponseEntity<Produto> mostrarProdutoPeloNome(@Valid @PathVariable String nomeProduto) {
 		return ResponseEntity.ok(produtoService.mostrarProdutoPeloNome(nomeProduto));
 	}
 

@@ -39,8 +39,8 @@ public class CategoriaController {
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscarIdCategoriaOuFalhe(idCategoria));
 	}
 
-	@GetMapping("/nome-categoria")
-	public ResponseEntity<Categoria> buscarPeloNomeCategoria(@Valid @RequestParam String nomeCategoria) {
+	@GetMapping("/nome-categoria/{nomeCategoria}")
+	public ResponseEntity<Categoria> buscarPeloNomeCategoria(@Valid @PathVariable String nomeCategoria) {
 		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.buscarPeloNomeOuFalhe(nomeCategoria));
 	}
 
