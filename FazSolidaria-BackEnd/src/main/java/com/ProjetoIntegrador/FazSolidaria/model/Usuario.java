@@ -1,9 +1,9 @@
 package com.ProjetoIntegrador.FazSolidaria.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -69,6 +68,10 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Endereco> endereco;
 	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+    private List<PedidoNovo> pedidos = new ArrayList<>();
+	
 
 
 	public Usuario(long id, String cpf, String nome, String usuario, String senha, String dataNasc, String telefone) {
@@ -84,5 +87,15 @@ public class Usuario {
 	public Usuario() {
 		
 	}
+	
+//	public void add(PedidoNovo pedido){
+//        if(pedidos != null){
+//            if(pedidos == null){
+//            	pedidos = new ArrayList<>();
+//            }
+//            pedidos.add(pedido);
+//            pedido.setUsuario(this);
+//        }
+//    }
 	
 }

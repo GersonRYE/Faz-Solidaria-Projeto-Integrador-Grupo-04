@@ -39,7 +39,7 @@ public class Endereco {
 	private String numero;
 
 	@ManyToOne
-	@JsonIgnoreProperties("endereco")
-	private Usuario usuario;
+	@JsonIgnoreProperties(value = "endereco", allowSetters = true)
+	private UsuarioNovo usuario;
 
 }

@@ -48,7 +48,7 @@ public class PedidoService {
 	}
 
 	private void armazenaItensPedido(Pedido pedido) {
-		pedido.getItens().forEach(item -> {
+		pedido.getItensPedido().forEach(item -> {
 			Produto produto = cadastroProduto.buscarIdProdutoOuFalhe(item.getProduto().getId());
 			item.setProduto(produto);
 		});

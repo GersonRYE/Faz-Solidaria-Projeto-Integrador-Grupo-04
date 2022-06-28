@@ -32,8 +32,10 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private String orderTrackingNumber;
 
 	private BigDecimal subtotal;
+	private int quantidadeTotal;
 	private BigDecimal frete;
 	private BigDecimal valorTotal;
 
@@ -55,11 +57,11 @@ public class Pedido {
 
 	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("pedido")
-	private List<ItemPedido> itens = new ArrayList<>();
+	private List<ItemPedido> itensPedido = new ArrayList<>();
 
 	public void valorTotalPedido() {
-		for (int i = 0; i < getItens().size(); i++) {
-			BigDecimal subTotalPedido = this.getItens().get(i).getPrecoTotal();
+		for (int i = 0; i < getItensPedido().size(); i++) {
+			BigDecimal subTotalPedido = this.getItensPedido().get(i).getPrecoTotal();
 			setSubtotal(subTotalPedido.add(getSubtotal()));
 		}
 		setValorTotal(getSubtotal().add(getFrete()));
@@ -88,5 +90,15 @@ public class Pedido {
 		}
 		this.status = novoStatus;
 	}
+	
+	 public void add(ItemPedido item){
+	        if(item != null){
+	            if(itensPedido == null){
+	            	itensPedido = new ArrayList<>();
+	            }
+	            itensPedido.add(item);
+	            item.setPedido(this);
+	        }
+	    }
 
 }
