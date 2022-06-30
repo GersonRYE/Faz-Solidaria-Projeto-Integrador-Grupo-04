@@ -38,38 +38,34 @@ public class CheckoutServiceImpl implements CheckoutService {
 		  // retrieve the order info from dto
         PedidoNovo pedido = purchase.getPedido();
 
-        // generate tracking number
+        // gera numero de pedido
         String orderTrackingNumber = generateOrderTrackingNumber();
         pedido.setOrderTrackingNumber(orderTrackingNumber);
-//        pedido.setUsuario(purchase.getUsuario());
 
-        // populate order with orderItems
+        // armazena os itensPedido no pedido
         List<ItemPedidoNovo> itensPedido = purchase.getItensPedido();
         itensPedido.forEach(item -> pedido.add(item));
 
-        // populate order with shippingAddress and billingAddress
-//        order.setBillingAddress(purchase.getBillingAddress());
-//        order.setShippingAddress(purchase.getShippingAddress());
 
-        // populate customer with order
+        //armazena o usuario no pedido
         UsuarioNovo usuario = purchase.getUsuario();
         usuario.add(pedido);
         
         Endereco endereco = purchase.getEndereco();
         usuario.addEndereco(endereco);
 
-//         save to the database
+        // salva no banco do usuario
         usuarioRepository.save(usuario);
         
-        // salvar endereco
+        // salvar no banco do endereco
         enderecoRespository.save(endereco);
 
-        // return a response
+        // reurn da resposta
         return new PurchaseResponse(orderTrackingNumber);
 	}
 	
+	
 	 private String generateOrderTrackingNumber() {
-
 	        // generate a random UUID (UUID version-4)
 	        return UUID.randomUUID().toString();
 	    }
