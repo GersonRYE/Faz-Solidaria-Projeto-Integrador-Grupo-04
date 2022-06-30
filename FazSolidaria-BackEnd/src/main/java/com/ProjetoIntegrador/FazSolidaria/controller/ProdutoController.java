@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ProjetoIntegrador.FazSolidaria.model.Produto;
+import com.ProjetoIntegrador.FazSolidaria.repository.ProdutoRepository;
 import com.ProjetoIntegrador.FazSolidaria.services.ProdutoServices;
 
 @RestController
@@ -28,6 +29,9 @@ public class ProdutoController {
 
 	@Autowired
 	private ProdutoServices produtoService;
+	
+	@Autowired
+	private ProdutoRepository produtoRespository;
 
 	@GetMapping
 	public ResponseEntity<List<Produto>> mostrarProdutosCadastrados() {
@@ -42,6 +46,11 @@ public class ProdutoController {
 	@GetMapping("/buscar-nome-produto/{nomeProduto}")
 	public ResponseEntity<Produto> mostrarProdutoPeloNome(@Valid @PathVariable String nomeProduto) {
 		return ResponseEntity.ok(produtoService.mostrarProdutoPeloNome(nomeProduto));
+	}
+	
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Produto>> busquePeloNomeProduto(@PathVariable String nome){
+		return ResponseEntity.ok(produtoRespository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
 	@PostMapping("/cadastrar-produto")

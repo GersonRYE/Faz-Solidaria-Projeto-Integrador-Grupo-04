@@ -25,6 +25,7 @@ public class UsuarioNovo {
 	private Long id;
 	private String nome;
 	private String usuario;
+	private String telefone;
 	
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "usuario", allowSetters = true)
