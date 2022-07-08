@@ -1,5 +1,6 @@
 package com.ProjetoIntegrador.FazSolidaria.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +12,11 @@ import com.ProjetoIntegrador.FazSolidaria.dto.PurchaseResponse;
 import com.ProjetoIntegrador.FazSolidaria.services.CheckoutService;
 
 @RestController
-@CrossOrigin()
 @RequestMapping("/api/checkout")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class checkoutController {
 	
+	@Autowired
 	private CheckoutService checkoutService;
 
 
