@@ -1,0 +1,1 @@
+29/05/2022 23:55:00 - Error during create payment process: Error: select `id`, `user`, `value` from `pagamentos` where `id` = '65fb1fbe-fad5-4706-8fe4-c2e77281d5b7' - SQLITE_ERROR: no such table: pagamentos
