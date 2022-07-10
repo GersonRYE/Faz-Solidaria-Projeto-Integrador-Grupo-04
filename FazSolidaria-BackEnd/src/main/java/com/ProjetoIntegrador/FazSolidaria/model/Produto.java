@@ -47,7 +47,7 @@ public class Produto {
 
 	@JoinColumn(name = "categoria_id", nullable = false)
 	@ManyToOne
-	@JsonIgnoreProperties("produtos")
+	@JsonIgnoreProperties(value = "produtos", allowSetters = true)
 	private Categoria categoria;
 
 	public void moedaDuasCasasDecimais() {

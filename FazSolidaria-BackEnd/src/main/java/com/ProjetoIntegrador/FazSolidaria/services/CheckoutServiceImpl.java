@@ -20,6 +20,7 @@ import com.ProjetoIntegrador.FazSolidaria.repository.UsuarioNovoRepository;
 @Service
 public class CheckoutServiceImpl implements CheckoutService {
 	
+	@Autowired
 	private UsuarioNovoRepository usuarioRepository;
 	
 	@Autowired

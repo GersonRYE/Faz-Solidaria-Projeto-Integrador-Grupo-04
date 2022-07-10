@@ -12,7 +12,7 @@
 	<groupId>com.ProjetoIntegrador</groupId>
 	<artifactId>FazSolidaria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<!-- <packaging>jar</packaging> -->
+	<packaging>jar</packaging>
 	<name>FazSolidaria</name>
 	<description>Projeto e-commerce</description>
 	<properties>
@@ -46,11 +46,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -81,13 +76,20 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> 
-				<configuration> <excludes> <exclude> <groupId>org.projectlombok</groupId> 
-				<artifactId>lombok</artifactId> </exclude> </excludes> </configuration> -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -98,10 +100,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.19.1</version>
 			</plugin>
-			<!-- <plugin> <groupId>com.heroku.sdk</groupId> <artifactId>heroku-maven-plugin</artifactId> 
-				<version>3.0.3</version> <configuration> <appName>fazsolidaria</appName> 
-				<processTypes> <web>java $JAVA_OPTS -cp target/classes:target/dependency/* 
-				Main</web> </processTypes> </configuration> </plugin> -->
 		</plugins>
 	</build>
 

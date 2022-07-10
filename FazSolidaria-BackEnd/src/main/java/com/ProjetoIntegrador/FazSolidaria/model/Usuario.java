@@ -68,7 +68,7 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Endereco> endereco;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
     private List<PedidoNovo> pedidos = new ArrayList<>();
 	

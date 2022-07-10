@@ -30,7 +30,7 @@ public class Categoria {
 	private String tipoAlimento;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE) // Uma Categoria para Muitos Produtos
-	@JsonIgnoreProperties("categoria")
+	@JsonIgnoreProperties(value = "categoria", allowSetters = true)
 	private List<Produto> produtos;
 
 }

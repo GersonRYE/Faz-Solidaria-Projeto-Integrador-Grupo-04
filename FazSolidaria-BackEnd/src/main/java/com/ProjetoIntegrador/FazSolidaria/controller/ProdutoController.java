@@ -54,6 +54,7 @@ public class ProdutoController {
 
 	@PostMapping("/cadastrar-produto")
 	public ResponseEntity<Produto> cadastrarProduto(@Valid @RequestBody Produto nomeProduto) {
+		nomeProduto.setQtd(1);
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.cadastrarProduto(nomeProduto));
 	}
 
